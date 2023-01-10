@@ -3,7 +3,7 @@ let tva,prix,valeurTva,prixTtc,affichage;
 
 //entrer des valeur
 
-prix = Number(prompt("quel est le prix de votre article :"));
+prix = Number(prompt("quel est le prix hors taxe de votre article :"));
 tva = Number(prompt("quel est le % tva appliqué (valeur entre 0 et 100):"));
 
 //calcul
