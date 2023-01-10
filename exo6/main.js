@@ -12,5 +12,5 @@ valeurTva = prix * (tva/100);
 prixTtc = prix + valeurTva;
 
 //affichage
-affichage = `pour un article de ${prix}€ et une TVA de ${tva}% on a donc une valeur de TVA de ${valeurTva} et donc un article en TTC a ${prixTtc}€`
-alert(affichage)
+affichage = `pour un article de ${prix}€ et une TVA de ${tva}% on a donc une valeur de TVA de ${valeurTva} et donc un article en TTC a ${prixTtc}€`;
+alert(affichage);
