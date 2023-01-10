@@ -1,7 +1,6 @@
 let diametre,perimetr, air, message;
 
 diametre = Number(prompt("entrer la valeur du diametre du cercle :"));
-rayon = diametre/2;
 perimetre = diametre * Math.PI;
 air= Math.PI*Math.pow(diametre/2, 2);
 
