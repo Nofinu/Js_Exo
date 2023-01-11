@@ -1,10 +1,8 @@
 //initialisation
-let entry="",message="";
+let entry="",message="Vous avez choisi";
 
 //entrer des valeurs
 entry = (prompt("Quelle boisson voullez vous (entrer la valeur corespondante) : \n1.Eau\n2.Jus d'oranges\n3.Limonades\n4.Café\n5.Thé"));
-
-message = "Vous avez choisi"
 
 switch(entry){
     case "1":
