@@ -4,20 +4,20 @@ let entry="",message="";
 //entrer des valeurs
 entry = (prompt("Quelle boisson voullez vous (entrer la valeur corespondante) : \n1.Eau\n2.Jus d'oranges\n3.Limonades\n4.Café\n5.Thé"));
 
-switch(true){
-    case entry == 1:
+switch(choix){
+    case "1":
         message = "Vous avez choisi de l'eau.";
         break;
-    case entry == 2:
+    case "2":
         message = "Vous avez choisi du jus d'oranges.";
         break;
-    case entry == 3:
+    case "3":
         message = "Vous avez choisi de la limonade.";
         break;
-    case entry == 4:
+    case "3":
         message = "Vous avez choisi du café.";
         break;
-    case entry == 5:
+    case "5":
         message = "Vous avez choisi de thé.";
         break;
     default:
