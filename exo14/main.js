@@ -2,17 +2,30 @@
 let noteMax=0,noteMin=0,somme=0,moyenne=0,entry=0,nbNote=0,message="";
 
 //entrer les valeurs 
+entry = Number(prompt("entrer une note ou 123 pour terminer :"));
+    noteMax=entry;
+    noteMin=entry;
 
 do {
     entry = Number(prompt("entrer une note ou 123 pour terminer :"));
-    if(entry>noteMax && entry!=123){
-        noteMax = entry;
+    switch(true){
+        case entry == 123:
+            break;
+        case entry>noteMax :
+            noteMax = entry;
+            somme += entry;
+            nbNote ++;
+            break;
+        case entry<noteMin:
+            noteMin = entry;
+            somme += entry;
+            nbNote ++;
+            break;
+        default:
+            somme += entry;
+            nbNote ++;
+            break;
     }
-    if (entry<noteMin){
-        noteMin = entry;
-    }
-    somme += entry;
-    nbNote ++;
 }while(entry != 123)
 
 moyenne = Math.round(somme/nbNote);
