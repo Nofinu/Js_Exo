@@ -13,6 +13,8 @@ else{
     nbPart = nbAdulte+((nbEnfant*0.5*2)+(nbEnfant-2));
 }
 
+//nbPart = nbEnfant <=2 ?  nbAdulte+(nbEnfant*0.5) : nbAdulte+((nbEnfant*0.5*2)+(nbEnfant-2));
+
 montant = montantNet/nbPart;
 
 switch(true){
