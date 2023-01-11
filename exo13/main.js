@@ -14,7 +14,7 @@ for(let i=1;i<=((valeurFinal/2)+1);i++){
         longueur = message.length;
         message = message.slice(0, length-3)+".";
         message = `${valeurFinal} = `+message;
-        messageFinal = messageFinal + message + "\n"
+        messageFinal = messageFinal + message + "\n";
     }
 }
-console.log(messageFinal)
+console.log(messageFinal);
