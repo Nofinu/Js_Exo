@@ -9,7 +9,7 @@ switch(entry){
         message += " de l'eau.";
         break;
     case "2":
-        message += " d'oranges.";
+        message += "du jus d'oranges.";
         break;
     case "3":
         message += " de la limonade.";
