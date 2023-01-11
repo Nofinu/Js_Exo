@@ -20,18 +20,23 @@ switch(true){
         impot=0;
         break;
     case montant<=27478:
-        impot = Math.round(montantNet*0.11);
+        impot = (montant-10777)*0.11;
         break;
     case montant<=78570:
-        impot = Math.round(montantNet*0.3);
+        impot =  1837;
+        impot += (montant-38255)*0.3;
         break;
     case montant<=168994:
-        impot = Math.round(montantNet*0.41);
+        impot = 15327+1837;
+        impot +=(montant-89346)*0.41;
         break;
     case montant>168994:
-        impot = Math.round(montantNet*0.45);
+        impot =15327 + 1837 + 37073
+        impot = (montant-179769)*0.45;
         break;
 }
+
+impot = impot*nbPart
 
 message =`Vos impots sur le revenue sont donc de ${impot} €.`;
 alert(message);
