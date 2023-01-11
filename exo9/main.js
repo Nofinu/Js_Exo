@@ -9,10 +9,10 @@ salaire = Number(prompt("entrer votre dernier salaire en euros:"))
 
 if(anciente<=10){
     if(age>=45 & age<=49){
-        indemenite = (salaire *2.5)*anciente
+        indemenite = (salaire *0.5)*anciente+(2*salaire)
     }
     else if(age>49){
-        indemenite = (salaire *5.5)*anciente
+        indemenite = (salaire *0.5)*anciente+(5*salaire)
     }
     else{
         indemenite = (salaire *0.5)*anciente
@@ -20,13 +20,13 @@ if(anciente<=10){
 }
 else{
     if(age>=45 & age<=49){
-        indemenite = (salaire *3)*anciente
+        indemenite = salaire*anciente+(2*salaire)
     }
     else if(age>49){
-        indemenite = (salaire *6)*anciente
+        indemenite = salaire*anciente+(5*salaire)
     }
     else{
-        indemenite = (salaire *1)*anciente
+        indemenite = salaire*anciente
     }
 }
 
