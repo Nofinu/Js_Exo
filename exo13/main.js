@@ -1,7 +1,7 @@
 //initialisation
-let valeurFinal=0,longueur=0;
+let valeurFinal=0,longueur=0,messageFinal="";
 
-valeurFinal=Number(prompt("entrer la valeur don vous vouler les listes :"));
+valeurFinal=Number(prompt("Entrer la valeur pour generer les listes :"));
 
 for(let i=1;i<=((valeurFinal/2)+1);i++){
     let somme=0,message="",j=i;
@@ -14,6 +14,7 @@ for(let i=1;i<=((valeurFinal/2)+1);i++){
         longueur = message.length;
         message = message.slice(0, length-3)+".";
         message = `${valeurFinal} = `+message;
-        console.log(message)
+        messageFinal = messageFinal + message + "\n"
     }
 }
+console.log(messageFinal)
