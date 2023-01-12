@@ -22,23 +22,23 @@ let etudiants = [
     } 
 ]; 
 
-let message ="",compteur=0;
+let message ="",compteur=1;
 
-for(let i in etudiants){
+for(let i of etudiants){
     let somme=0, moyenne=0,nbNote=0;
     message = `\nnotre eleve n°${compteur} est`;
-    message += `${etudiants[i].prenom} ${etudiants[i].nom}`;
+    message += `${i.prenom} ${i.nom}`;
     console.log(message);
-    for(let j in etudiants[i].matieres){
+    for(let j in i.matieres){
         message ="";
-        message = `${j} : ${etudiants[i].matieres[j]}\n`;
+        message = `${j} : ${i.matieres[j]}\n`;
         console.log(message);
-        somme +=etudiants[i].matieres[j];
+        somme +=i.matieres[j];
         nbNote ++;
     }
     moyenne =Math.round(somme/nbNote) ;
-    compteur++;
     message =`sa moyenne est de ${moyenne}`;
     console.log(message);
+    compteur++;
 }
 
