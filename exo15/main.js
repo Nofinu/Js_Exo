@@ -26,11 +26,9 @@ let message ="",compteur=1;
 
 for(let i of etudiants){
     let somme=0, moyenne=0,nbNote=0;
-    message = `\nnotre eleve n°${compteur} est`;
-    message += `${i.prenom} ${i.nom}`;
+    message = `\nnotre eleve n°${compteur} est ${i.prenom} ${i.nom}`;
     console.log(message);
     for(let j in i.matieres){
-        message ="";
         message = `${j} : ${i.matieres[j]}\n`;
         console.log(message);
         somme +=i.matieres[j];
