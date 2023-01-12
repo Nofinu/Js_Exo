@@ -19,7 +19,16 @@ let etudiants = [
             informatique: 4, 
             sport: 10 
         } 
-    } 
+    },
+    { 
+        prenom: "José", 
+        nom: "Garcia", 
+        matieres: { 
+            francais: 16, 
+            anglais: 7, 
+            humour: 14 
+        }  
+    }, 
 ]; 
 
 let message ="",compteur=1;
