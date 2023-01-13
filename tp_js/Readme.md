@@ -7,6 +7,7 @@
     - d'afficher les personne(chaque personne possède un nom, prénom et son age).
     - d'ajouter une personne dans le tableau.
     - de supprimer une personne.
+    -possibilité de modifier un contact / ajout d'un numéro de téléphone a mes contacts / supprimer un contact par son numéro de téléphone
 
 
 ```
