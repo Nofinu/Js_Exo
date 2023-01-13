@@ -7,8 +7,8 @@ function demandeNbrTentative (){
     return entry;
 }
 
-function geneValRdm(){
-    return Math.floor(Math.random() * (1000 - 1) + 1);
+function geneValRdm(valmax){
+    return Math.floor(Math.random() * (valmax - 1) + 1);
 }
 
 function demandeValeur (tour){
@@ -17,40 +17,52 @@ function demandeValeur (tour){
     return num;
 }
 
-function testVal (val,objectif){
+function testVal (val,objectif,compt){
     if(val<objectif){
         console.log("ok")
         alert(`la valeur rechercher est superieur a ${val}`)
+        tabChev[compt-1] = "<";
         return false
     }
     if(val>objectif){
         console.log("ok")
         alert(`la valeur rechercher est inferieur a ${val}`)
+        tabChev[compt-1] = ">";
         return false
     }
     if(val == objectif){
         console.log("ok")
+        tabChev[compt-1] = "=";
         return true;
     }
     
 }
 
+function affichage(tab1,tab2){
+    let message = "";
+    for(let i = 0; i<tab1.length-1 ; i++){
+        message += `${tab1[i]} ${tab2[i]} ${objectif}\n`;
+    }
+    return message;
+}
+
 //initialisation
-let nbrTentative =0,succes= false,objectif=0,compteur=1,valEntrer=0;
+let nbrTentative =0,succes= false,objectif=0,compteur=1,valEntrer=0,tabVal=[],tabChev=[];
 
 
 nbrTentative = demandeNbrTentative();
-objectif = geneValRdm();
+objectif = geneValRdm(Number(prompt("entrer la valeur max a deviner")));
 while (nbrTentative>0 && succes != true ){
     valEntrer = demandeValeur(compteur);
-    succes = testVal(valEntrer,objectif);
+    succes = testVal(valEntrer,objectif,compteur);
+    tabVal[compteur-1] = valEntrer;
     compteur++;
     nbrTentative--;
 }
 
 if(succes){
-    alert(`Bravo vous avez trouvez la valeur ${objectif} en ${compteur-1} tours !!`)
+    alert(`Bravo vous avez trouvez la valeur ${objectif} en ${compteur-1} tours !!\n ${affichage(tabVal,tabChev)}`)
 }
 else{
-    alert(`vous n'avez malheuresement pas trouver la valeur ${objectif} ...`)
+    alert(`vous n'avez malheuresement pas trouver la valeur ${objectif} ...\n ${affichage(tabVal,tabChev)}`)
 }
