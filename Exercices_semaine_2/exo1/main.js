@@ -12,6 +12,7 @@ const myResultWorstNote = document.querySelector('#resultWorstNote');
 const myResultBestNote = document.querySelector('#resultBestNote');
 const myResultMean = document.querySelector('#resultMean');
 const myListeNote = document.querySelector('#listeNote')
+const myDisplayNote = document.querySelector('#displayNote')
 
 function calcmean (sommeNote,nbrNote){
     return Math.round(sommeNote/nbrNote);
@@ -43,21 +44,27 @@ document.addEventListener("keydown",(e) =>{
         somme += entry;
         compteur++;
         myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
+        myDisplayNote.textContent = `La serie contient ${compteur} notes :`
+        myEntryText.value = "";
     }
 });
 
 myEntryBtn.addEventListener('click',() =>{
-    let entry = 0;
-    entry = Number(myEntryText.value);
-    if (entry < noteMin){
-        noteMin = entry;
+    if(myEntryText.value !="") {
+        let entry = 0;
+        entry = Number(myEntryText.value);
+        if (entry < noteMin){
+            noteMin = entry;
+        }
+        if(entry > noteMax){
+            noteMax = entry;
+        }
+        somme += entry;
+        compteur++;
+        myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
+        myDisplayNote.textContent = `La serie contient ${compteur} notes :`
+        myEntryText.value = "";
     }
-    if(entry > noteMax){
-        noteMax = entry;
-    }
-    somme += entry;
-    compteur++;
-    myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
     attributFocus();
 });
 
