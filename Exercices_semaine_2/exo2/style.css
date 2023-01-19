@@ -3,36 +3,74 @@
     margin: auto;
     border-radius: 10px;
     background-color: black;
-    height: 45vh;
-    width: 70vw;
+    height: 35vh;
+    width: 650px;
     display: flex;
     flex-direction: column;
+    padding:10px;
 }
 
 .container{
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;
-
+    display: grid;  
+    grid-template-columns: 0.6fr 1fr;
+    height: 75%;
+    gap: 20px;
+}
+#my-select{
+    background-color: black;
+    border: solid white 1px;
+    color: white;
+    border-radius: 5px;
 }
 
+button{
+    margin-left: auto;
+    background-color: black;
+    border: solid white 1px;
+    color: white;
+    border-radius: 5px;
+}
 #formulaire{
     display: grid;
-    grid-template-columns: 1fr;
+    align-items: flex-start;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1vh;
 }
-
-#affichage{
-    color: white;
+label{
+    text-align: center;
 }
+hr{
+    color: white;
+    width: 90%;
+}
+
+span{
+    color: white;
+    margin-bottom: 5px;
+}
+
 h1{
     color: white;
 }
 label{
     color: white;
+    margin-bottom: 5px;
+}
+.hidden{
+    display: none;
+}
+.affichage{
+    color: white;
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1vh;   
+    margin-top: 15px;
 }
 
-formulaire{
-    display: inline-block;
+input{
+    border-radius: 5px;
+    border: transparent;
 }
