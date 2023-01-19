@@ -15,7 +15,7 @@ const myListeNote = document.querySelector('#listeNote')
 const myDisplayNote = document.querySelector('#displayNote')
 
 function calcmean (sommeNote,nbrNote){
-    return Math.round(sommeNote/nbrNote);
+    return (Math.round((sommeNote/nbrNote)*100))/100;
 }
 function attributFocus (){
     myEntryText.focus();
@@ -23,6 +23,7 @@ function attributFocus (){
 
 mySaisie.addEventListener('click',() =>{
     myInputArea.classList.remove("hidden");
+    attributFocus();
 });
 
 document.addEventListener("keydown",(e) =>{
