@@ -27,6 +27,7 @@ mySaisie.addEventListener('click',() =>{
 document.addEventListener("keydown",(e) =>{
     if(e.key === "Escape") {
         myInputArea.classList.add("hidden");
+        myEntryText.value = "";
     }
 });
 document.addEventListener("keydown",(e) =>{
