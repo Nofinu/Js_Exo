@@ -1,0 +1,38 @@
+
+#cadre{
+    margin: auto;
+    border-radius: 10px;
+    background-color: black;
+    height: 45vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+
+}
+
+#formulaire{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vh;
+}
+
+#affichage{
+    color: white;
+}
+h1{
+    color: white;
+}
+label{
+    color: white;
+}
+
+formulaire{
+    display: inline-block;
+}
