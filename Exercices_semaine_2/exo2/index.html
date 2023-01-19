@@ -8,37 +8,45 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="cadre">
-        <h1>Mon exemple</h1>
-        <hr>
-        <span>Ajouter un chien :</span>
-        <div class="container">
-            <div id="formulaire">
-                <label for="nomChien">Nom :</label>
-                <input type="text" id="nomChien" placeholder="Nom du chien">
-                <label for="raceChien">race :</label>
-                <input type="text" id="raceChien" placeholder="Race du chien">
-                <label for="ageChien">Age :</label>
-                <input type="number" id="ageChien" placeholder="Age du chien">
-                <button id="send">Envoyer</button>
-            </div>
-            <div id="selecteur">
-                <label for="select">Selectionner un chien</label>
-                <select name="select" id="my-select">
-                </select>
-                <div class="hidden" id="affichage" >
-                    <label for="newNomChien">Nouveau nom :</label>
-                    <input type="text" id="newNomChien" >
-                    <label for="newRaceChien">Nouvelle race :</label>
-                    <input type="text" id="newRaceChien" >
-                    <label for="newAgeChien">Nouvelle age :</label>
-                    <input type="number" id="newAgeChien" >
-                    <button id="Modifier">Modiffier</button>
-                    <button id="Supprimer">Supprimer</button>
+    <header>
+        <div id="entete">
+            <img src="./asset/Dog.svg" alt="svg_chien">
+            <h1>Liste Chien !</h1>
+        </div>
+    </header>
+    <main>
+        <div id="cadre">
+            <h2>Mon exemple</h2>
+            <hr>
+            <span>Ajouter un chien :</span>
+            <div class="container">
+                <div id="formulaire">
+                    <label for="nomChien">Nom :</label>
+                    <input type="text" id="nomChien" placeholder="Nom du chien">
+                    <label for="raceChien">race :</label>
+                    <input type="text" id="raceChien" placeholder="Race du chien">
+                    <label for="ageChien">Age :</label>
+                    <input type="number" id="ageChien" placeholder="Age du chien">
+                    <button id="send">Envoyer</button>
+                </div>
+                <div id="selecteur">
+                    <label for="select">Selectionner un chien</label>
+                    <select name="select" id="my-select">
+                    </select>
+                    <div class="hidden" id="affichage" >
+                        <label for="newNomChien">Nom du chien selectioner :</label>
+                        <input type="text" id="newNomChien" >
+                        <label for="newRaceChien">Race du chien selectioner :</label>
+                        <input type="text" id="newRaceChien" >
+                        <label for="newAgeChien">Age du chien selectioner :</label>
+                        <input type="number" id="newAgeChien" >
+                        <button id="Modifier">Modiffier</button>
+                        <button id="Supprimer">Supprimer</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     
 </body>

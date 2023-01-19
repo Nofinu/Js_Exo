@@ -1,5 +1,5 @@
 //intialisation
-let tabChien = [{nom:"max",race:"unerace",age:5},{nom:"roukie",race:"uneautrerace",age:8}],compteurChien=2;
+let tabChien = [{nom:"max",race:"Beagle",age:5},{nom:"roukie",race:"Carlin",age:8}],compteurChien=2;
 const mySend = document.querySelector('#send');
 const nomChien = document.querySelector('#nomChien');
 const raceChien = document.querySelector('#raceChien');
@@ -14,12 +14,14 @@ const modiffier = document.querySelector('#Modifier');
 const supprimer = document.querySelector('#Supprimer');
 
 function affichageSelectChien (liste){
-    let compteur =0;
     mySelect.innerHTML = `<option value="">Selectionner un chien</option>`;
-    for(let i in liste){
-        mySelect.innerHTML += `<option value="${compteur}">${liste[i].nom}</option>`;
-        compteur++;
-    }
+    liste.forEach(dog => {
+        mySelect.innerHTML +=`<option value="${tabChien.indexOf(dog)}">${dog.nom}</option>`
+    });
+    // for(let i in liste){
+    //     mySelect.innerHTML += `<option value="${compteur}">${liste[i].nom}</option>`;
+    //     compteur++;
+    // }
 }
 
 function addChien(newNom,newRace,newAge){

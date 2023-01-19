@@ -1,13 +1,19 @@
 
+body,html{
+    margin: 0;
+    color: white;
+}
+
 #cadre{
     margin: auto;
     border-radius: 10px;
     background-color: black;
-    height: 35vh;
+    height: 40vh;
     width: 650px;
     display: flex;
     flex-direction: column;
     padding:10px;
+    margin-top: 5vh;
 }
 
 .container{
@@ -18,16 +24,16 @@
 }
 #my-select{
     background-color: black;
-    border: solid white 1px;
+    border: solid white 2px;
     color: white;
     border-radius: 5px;
 }
 
 button{
+    color: white;
     margin-left: auto;
     background-color: black;
-    border: solid white 1px;
-    color: white;
+    border: solid white 2px;
     border-radius: 5px;
 }
 #formulaire{
@@ -36,6 +42,7 @@ button{
     grid-template-columns: 0.5fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1vh;
+    height: 80%;
 }
 label{
     text-align: center;
@@ -46,13 +53,9 @@ hr{
 }
 
 span{
-    color: white;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-h1{
-    color: white;
-}
 label{
     color: white;
     margin-bottom: 5px;
@@ -73,4 +76,32 @@ label{
 input{
     border-radius: 5px;
     border: transparent;
+    padding: 5px;
+}
+
+#entete{
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+img{
+    filter: invert(100);
+    height: 8vh;
+    margin-top: 1vh;
+    margin-left: 3vw;
+}
+
+h1{
+    color: white;
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+h2{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
