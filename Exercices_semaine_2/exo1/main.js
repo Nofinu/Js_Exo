@@ -43,7 +43,7 @@ document.addEventListener("keydown",(e) =>{
         }
         somme += entry;
         compteur++;
-        myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
+        myListeNote.innerHTML += `<li>en note <b>${compteur}</b>, vous avez saisi <b>${entry}/20</B>.</li>`
         myDisplayNote.textContent = `La serie contient ${compteur} notes :`
         myEntryText.value = "";
     }
