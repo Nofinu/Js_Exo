@@ -1,0 +1,46 @@
+#saisieBtn{
+    background-color: rgb(15, 70, 253);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px;
+}
+#bestNoteBtn{
+    background-color: rgb(30, 114, 4);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px;
+}
+#worstNoteBtn{
+    background-color: rgb(207, 3, 3);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px;
+}
+#meanBtn{
+    background-color: rgb(78, 78, 78);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px;
+}
+
+.hidden{
+    display: none;
+}
+
+#inputArea{
+    margin: 10px;
+}
+
+#resultWorstNote{
+    color: rgb(187, 1, 1);
+}   
+#resultBestNote{
+    color: green;
+}
+#resultMean{
+    color: grey;
+}
