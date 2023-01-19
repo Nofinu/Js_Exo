@@ -1,5 +1,5 @@
 //intialisation
-let noteMax=0,noteMin=20,entry=0,tabNote=[],compteur=0;
+let noteMax=0,noteMin=20,entry=0,somme=0,compteur=0;
 
 const mySaisie = document.querySelector('#saisieBtn');
 const myBestNote = document.querySelector('#bestNoteBtn');
@@ -13,14 +13,12 @@ const myResultBestNote = document.querySelector('#resultBestNote');
 const myResultMean = document.querySelector('#resultMean');
 const myListeNote = document.querySelector('#listeNote')
 
-function calcmean (liste){
-    let somme =0;
-    for(let i in liste){
-        somme += liste[i];
-    }
-    return Math.round(somme/liste.length);
+function calcmean (sommeNote,nbrNote){
+    return Math.round(sommeNote/nbrNote);
 }
-
+function attributFocus (){
+    myEntryText.focus();
+}
 
 mySaisie.addEventListener('click',() =>{
     myInputArea.classList.remove("hidden");
@@ -29,6 +27,21 @@ mySaisie.addEventListener('click',() =>{
 document.addEventListener("keydown",(e) =>{
     if(e.key === "Escape") {
         myInputArea.classList.add("hidden");
+    }
+});
+document.addEventListener("keydown",(e) =>{
+    if(e.key === "Enter" && myEntryText.value !="") {
+        let entry = 0;
+        entry = Number(myEntryText.value);
+        if (entry < noteMin){
+            noteMin = entry;
+        }
+        if(entry > noteMax){
+            noteMax = entry;
+        }
+        somme += entry;
+        compteur++;
+        myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
     }
 });
 
@@ -41,9 +54,10 @@ myEntryBtn.addEventListener('click',() =>{
     if(entry > noteMax){
         noteMax = entry;
     }
-    tabNote[compteur] = entry;
+    somme += entry;
     compteur++;
     myListeNote.innerHTML += `<li>en note ${compteur}, vous avez saisi ${entry}/20.</li>`
+    attributFocus();
 });
 
 myWorstNote.addEventListener('click',() =>{
@@ -53,6 +67,6 @@ myBestNote.addEventListener('click',() =>{
     myResultBestNote.textContent = `la meilleure note est : ${noteMax}`;
 });
 myMean.addEventListener('click',() =>{
-    myResultMean.textContent =`la moyenne est de : ${calcmean(tabNote)}`;
+    myResultMean.textContent =`la moyenne est de : ${calcmean(somme,compteur)}`;
 });
 
