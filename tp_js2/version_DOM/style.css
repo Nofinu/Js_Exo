@@ -1,0 +1,56 @@
+html,body{
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+header{
+    background-color: rgb(17, 0, 37);
+    height: 10vh;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px;
+    margin: auto;
+}
+
+h1{
+    font-family: sans-serif;
+    color: white;
+    font-size: 35px;
+    margin: 0;
+}
+
+#card{
+    background-color: rgb(17, 0, 37);
+    height: 40vh;
+    width: 60vh;
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
+}
+
+#startGame,#entry,#sendEntry,#tuto{
+    background-color: rgb(17, 0, 37);
+    border: solid white 2px;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+li{
+    color: white;
+}
+
+#tuto{
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+    margin-top: 10px;
+}
+
