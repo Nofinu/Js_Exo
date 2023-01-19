@@ -17,7 +17,6 @@ function calcmean (liste){
     let somme =0;
     for(let i in liste){
         somme += liste[i];
-        console.log(liste[i])
     }
     return Math.round(somme/liste.length);
 }
@@ -26,8 +25,9 @@ function calcmean (liste){
 mySaisie.addEventListener('click',() =>{
     myInputArea.classList.remove("hidden");
 });
-document.addEventListener("keypress",(e) =>{
-    if(e.key === "Escape"){
+
+document.addEventListener("keydown",(e) =>{
+    if(e.key === "Escape") {
         myInputArea.classList.add("hidden");
     }
 });
