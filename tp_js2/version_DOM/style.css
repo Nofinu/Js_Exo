@@ -15,6 +15,7 @@ header{
     display: flex;
     border-radius: 20px;
     margin: auto;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
 }
 
 h1{
@@ -41,6 +42,7 @@ h1{
     color: white;
     border-radius: 10px;
     margin-top: 10px;
+
 }
 
 li{
@@ -52,5 +54,7 @@ li{
     margin: auto;
     padding: 5px;
     margin-top: 10px;
+    border: transparent;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
 }
 
