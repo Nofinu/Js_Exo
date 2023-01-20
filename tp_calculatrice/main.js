@@ -43,30 +43,7 @@ function calcul(entry){
             taboutput.splice(j-1,1,`${somme}`);
             taboutput.splice(j,2);
         }
-
     }
-    console.log(taboutput)
-
-    // somme = Number(taboutput[0]);
-    // for (let i =1;i<taboutput.length;i+=2){
-    //     switch(taboutput[i]){
-    //         case "%":
-    //             somme = somme % Number(taboutput[i+1]);
-    //             break;
-    //         case "÷":
-    //             somme = somme / Number(taboutput[i+1]);
-    //             break;
-    //         case "x":
-    //             somme = somme * Number(taboutput[i+1]);
-    //             break;
-    //         case "-":
-    //             somme -= Number(taboutput[i+1]);
-    //             break;
-    //         case "+":
-    //             somme += Number(taboutput[i+1]);
-    //             break;
-    //     }
-    // }
     return somme;
 }
 
