@@ -51,7 +51,6 @@ function calcul(entry){
 function concatenation(entry){
     let tabCalc=[],value="";
     for(let i of entry){
-        console.log(i)
         if(Number(i) || Number(i)==0){
             value += i;
         }
