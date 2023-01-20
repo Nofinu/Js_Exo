@@ -1,0 +1,63 @@
+body,html{
+    margin: 0;
+}
+
+#gridContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    overflow: hidden;
+    height: 65%;
+    gap: 2px;
+    overflow: hidden;
+    background-color: #202020;
+}
+
+button{
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#container{
+    overflow: hidden;
+    height: 80vh;
+    width: 30vw;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#containerDisplay{
+    height: 150px;
+    width: 100%;
+    background-color: #202020;
+    color: white;
+    text-align: right;
+    margin-top: 80px;
+    font-size: 50px;
+    font-family: sans-serif;
+}
+#display{
+    color: white;
+    text-align: right;
+    margin-top: 80px;
+    font-size: 50px;
+    font-family: sans-serif;
+    padding-top: 50px;
+}
+
+.btnContainer{
+    overflow: hidden;
+}
+
+.btn,.btnOrange{
+    font-size: 250%;
+    border: transparent;
+}
+.btnOrange{
+    background-color: #F78E12;
+}
+
+#containerBtnEqual{
+    grid-column: 3/5;
+}
