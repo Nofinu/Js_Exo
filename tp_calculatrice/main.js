@@ -1,10 +1,11 @@
 let affichage ="",opperateur=true,tabEntry = [],calc=0;
 
 const display = document.querySelector('#display');
+const btnEqual = document.querySelector('#btnEqual');
 
 function affichageEntry(text){
     affichage += `${text}`;
-    display.textContent =affichage;
+    display.textContent = affichage;
 }
 
 function affichageReset(){
@@ -13,7 +14,7 @@ function affichageReset(){
 }
 
 function calcul(entry){
-    let taboutput=[],somme=0;
+    let taboutput=[],somme=entry[0];
     taboutput = concatenation(entry);
     for (let i=1 ; i<taboutput.length ;i++){
         if(taboutput[i] == "x"){
@@ -66,6 +67,9 @@ function concatenation(entry){
     tabCalc.push(value);
     return tabCalc;
 }
+function attributFocus (){
+    btnEqual.focus();
+}
 
 //gestion des boutons
 document.addEventListener('click',(e)=>{
@@ -74,6 +78,7 @@ document.addEventListener('click',(e)=>{
             affichageReset();
             tabEntry=[]
             opperateur = false;
+            attributFocus();
             break;
         case "π":
             affichageEntry(e.target.dataset.btn);
@@ -271,9 +276,9 @@ document.addEventListener('keydown',(e)=>{
         case "Enter":
             opperateur = false;
             affichageReset();
-            calc = calcul(tabEntry)
+            calc = calcul(tabEntry);
             affichageEntry(calc);
-            tabEntry =[`${calc}`]
+            tabEntry =[`${calc}`];
             break;
     }
 });
