@@ -168,5 +168,100 @@ document.addEventListener('click',(e)=>{
             tabEntry =[`${calc}`]
             break;
     }
+});
 
+document.addEventListener('keydown',(e)=>{
+    switch(e.key){
+        case "/":
+            if(!opperateur){
+                affichageEntry("÷");
+                tabEntry.push("÷");
+                opperateur = true;
+            }
+            break;
+        case "7":
+            affichageEntry("7");
+            tabEntry.push("7");
+            opperateur = false;
+            break;
+        case "8":
+            affichageEntry("8");
+            tabEntry.push("8");
+            opperateur = false;
+            break;
+        case "9" :
+            affichageEntry("9");
+            tabEntry.push("9");
+            opperateur = false;
+            break;
+        case "*":
+            if(!opperateur){
+                affichageEntry("x");
+                tabEntry.push("x");
+                opperateur = true;
+            }
+            break;
+        case "4":
+            affichageEntry("4");
+            tabEntry.push("4");
+            opperateur = false;
+            break;
+        case "5":
+            affichageEntry("5");
+            tabEntry.push("5");
+            opperateur = false;
+            break;
+        case "6" :
+            affichageEntry("6");
+            tabEntry.push("6");
+            opperateur = false;
+            break;
+        case "-":
+            if(!opperateur){
+                affichageEntry("-");
+                tabEntry.push("-");
+                opperateur = true;
+            }
+            break;
+        case "1":
+            affichageEntry("1");
+            tabEntry.push("1");
+            opperateur = false;
+            break;
+        case "2":
+            affichageEntry("2");
+            tabEntry.push("2");
+            opperateur = false;
+            break;
+        case "3":
+            affichageEntry("3");
+            tabEntry.push("3");
+            opperateur = false;
+            break;
+        case "+":
+            if(!opperateur){
+                affichageEntry("+");
+                tabEntry.push("+");
+                opperateur = true;
+            }
+            break;
+        case "0":
+            affichageEntry("0");
+            tabEntry.push("0");
+            break;
+        case ".":
+            if(!opperateur){
+                affichageEntry(".");
+                tabEntry.push(".");
+                opperateur = true;
+            }
+            break;
+        case "Enter":
+            opperateur = false;
+            affichageReset();
+            calc = calcul(tabEntry)
+            affichageEntry(calc);
+            tabEntry =[`${calc}`]
+            break;
+    }
 });
