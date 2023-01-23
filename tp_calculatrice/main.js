@@ -7,12 +7,10 @@ function affichageEntry(text){
     affichage += `${text}`;
     display.textContent = affichage;
 }
-
 function affichageReset(){
     affichage ="";
     display.textContent =affichage;
 }
-
 function calcul(entry){
     let taboutput=[],somme=entry[0];
     taboutput = concatenation(entry);
@@ -45,9 +43,8 @@ function calcul(entry){
             taboutput.splice(j,2);
         }
     }
-    return somme;
+    return Math.round(somme*100)/100;
 }
-
 function concatenation(entry){
     let tabCalc=[],value="";
     for(let i of entry){
@@ -69,83 +66,88 @@ function concatenation(entry){
 function attributFocus (){
     btnEqual.focus();
 }
-
 function valueEntry (data){
         affichageEntry(data);
         tabEntry.push(data);
         opperateur = false;
+        attributFocus ();
 }
 function opperateurEntry (data){
     if(!opperateur){
         affichageEntry(data);
         tabEntry.push(data);
         opperateur = true;
+        attributFocus ();
+    }
 }
-}
-
-//gestion des boutons
-document.addEventListener('click',(e)=>{
-    switch(e.target.dataset.btn){
-        case "C":
+function defCas(evenement){
+    switch(evenement){
+        case "C" || "Escape":
             affichageReset();
             tabEntry=[]
             opperateur = false;
             attributFocus();
             break;
         case "π":
-            affichageEntry(e.target.dataset.btn);
+            affichageEntry(evenement);
             tabEntry.push(`3.14`);
             opperateur = false;
             break;
         case "%":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
             break;
         case "÷":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
+            break;
+        case "/":
+            opperateurEntry("÷");
             break;
         case "7":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "8":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "9" :
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "x":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
+            break;
+        case "*":
+            opperateurEntry("x")
             break;
         case "4":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "5":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "6" :
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "-":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
             break;
         case "1":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "2":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "3":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case "+":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
             break;
         case "0":
-            valueEntry (e.target.dataset.btn);
+            valueEntry (evenement);
             break;
         case ".":
-            opperateurEntry(e.target.dataset.btn);
+            opperateurEntry(evenement);
             break;
-        case "=":
+        case "=" || "Enter":
             opperateur = false;
             affichageReset();
             calc = calcul(tabEntry);
@@ -153,64 +155,16 @@ document.addEventListener('click',(e)=>{
             tabEntry =[`${calc}`];
             break;
     }
+}
+
+//gestion des boutons
+document.addEventListener('click',(e)=>{
+    defCas(e.target.dataset.btn);
 });
 
 //gestion du clavier 
 document.addEventListener('keydown',(e)=>{
-    switch(e.key){
-        case "/":
-            if(!opperateur){
-                opperateurEntry("÷");
-            }
-            break;
-        case "7":
-            valueEntry (e.key);
-            break;
-        case "8":
-            valueEntry (e.key);
-            break;
-        case "9" :
-            valueEntry (e.key);
-            break;
-        case "*":
-            opperateurEntry("x");
-            break;
-        case "4":
-            valueEntry (e.key);
-            break;
-        case "5":
-            valueEntry (e.key);
-            break;
-        case "6" :
-            valueEntry (e.key);
-            break;
-        case "-":
-            opperateurEntry("-");
-            break;
-        case "1":
-            valueEntry (e.key);
-            break;
-        case "2":
-            valueEntry (e.key);
-            break;
-        case "3":
-            valueEntry (e.key);
-            break;
-        case "+":
-            opperateurEntry("+");
-            break;
-        case "0":
-            valueEntry (e.key);
-            break;
-        case ".":
-            opperateurEntry(".");
-            break;
-        case "Enter":
-            opperateur = false;
-            affichageReset();
-            calc = calcul(tabEntry);
-            affichageEntry(calc);
-            tabEntry =[`${calc}`];
-            break;
-    }
+    defCas(e.key);
 });
+
+
