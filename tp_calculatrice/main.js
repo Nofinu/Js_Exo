@@ -173,5 +173,3 @@ document.addEventListener('click',(e)=>{
 document.addEventListener('keydown',(e)=>{
     defCas(e.key);
 });
-
-
