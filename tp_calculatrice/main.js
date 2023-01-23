@@ -70,6 +70,7 @@ function attributFocus (){
     btnEqual.focus();
 }
 
+
 //gestion des boutons
 document.addEventListener('click',(e)=>{
     switch(e.target.dataset.btn){
@@ -167,6 +168,7 @@ document.addEventListener('click',(e)=>{
         case "0":
             affichageEntry(e.target.dataset.btn);
             tabEntry.push(e.target.dataset.btn);
+            opperateur = false;
             break;
         case ".":
             if(!opperateur){
@@ -264,6 +266,7 @@ document.addEventListener('keydown',(e)=>{
         case "0":
             affichageEntry("0");
             tabEntry.push("0");
+            opperateur = false;
             break;
         case ".":
             if(!opperateur){
