@@ -19,18 +19,18 @@ function calcul(entry){
     for (let i=1 ; i<taboutput.length ;i++){
         if(taboutput[i] == "x"){
             somme = Number(taboutput[i-1]) * Number(taboutput[i+1]);
-            taboutput.splice(i-1,1,`${somme}`)
-            taboutput.splice(i,2)
+            taboutput.splice(i-1,1,`${somme}`);
+            taboutput.splice(i,2);
         }
         if(taboutput[i] == "÷"){
             somme = Number(taboutput[i-1]) / Number(taboutput[i+1]);
-            taboutput.splice(i-1,1,`${somme}`)
-            taboutput.splice(i,2)
+            taboutput.splice(i-1,1,`${somme}`);
+            taboutput.splice(i,2);
         }
         if(taboutput[i] == "%"){
             somme = Number(taboutput[i-1]) % Number(taboutput[i+1]);
-            taboutput.splice(i-1,1,`${somme}`)
-            taboutput.splice(i,2)
+            taboutput.splice(i-1,1,`${somme}`);
+            taboutput.splice(i,2);
         }
     }
     for(let j=1 ; j<taboutput.length ;j++){
@@ -148,9 +148,9 @@ document.addEventListener('click',(e)=>{
         case "=":
             opperateur = false;
             affichageReset();
-            calc = calcul(tabEntry)
+            calc = calcul(tabEntry);
             affichageEntry(calc);
-            tabEntry =[`${calc}`]
+            tabEntry =[`${calc}`];
             break;
     }
 });
@@ -185,7 +185,7 @@ document.addEventListener('keydown',(e)=>{
             valueEntry (e.key);
             break;
         case "-":
-            opperateurEntry("-");;
+            opperateurEntry("-");
             break;
         case "1":
             valueEntry (e.key);
