@@ -82,7 +82,13 @@ function opperateurEntry (data){
 }
 function defCas(evenement){
     switch(evenement){
-        case "C" || "Escape":
+        case "C":
+            affichageReset();
+            tabEntry=[]
+            opperateur = false;
+            attributFocus();
+            break;
+        case "Escape":
             affichageReset();
             tabEntry=[]
             opperateur = false;
@@ -92,6 +98,7 @@ function defCas(evenement){
             affichageEntry(evenement);
             tabEntry.push(`3.14`);
             opperateur = false;
+            attributFocus();
             break;
         case "%":
             opperateurEntry(evenement);
@@ -147,7 +154,7 @@ function defCas(evenement){
         case ".":
             opperateurEntry(evenement);
             break;
-        case "=" || "Enter":
+        case "=":
             opperateur = false;
             affichageReset();
             calc = calcul(tabEntry);
