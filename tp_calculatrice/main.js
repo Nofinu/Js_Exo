@@ -70,6 +70,18 @@ function attributFocus (){
     btnEqual.focus();
 }
 
+function valueEntry (data){
+        affichageEntry(data);
+        tabEntry.push(data);
+        opperateur = false;
+}
+function opperateurEntry (data){
+    if(!opperateur){
+        affichageEntry(data);
+        tabEntry.push(data);
+        opperateur = true;
+}
+}
 
 //gestion des boutons
 document.addEventListener('click',(e)=>{
@@ -86,96 +98,52 @@ document.addEventListener('click',(e)=>{
             opperateur = false;
             break;
         case "%":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "÷":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "7":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "8":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "9" :
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "x":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "4":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "5":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "6" :
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "-":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "1":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "2":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "3":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case "+":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "0":
-            affichageEntry(e.target.dataset.btn);
-            tabEntry.push(e.target.dataset.btn);
-            opperateur = false;
+            valueEntry (e.target.dataset.btn);
             break;
         case ".":
-            if(!opperateur){
-                affichageEntry(e.target.dataset.btn);
-                tabEntry.push(e.target.dataset.btn);
-                opperateur = true;
-            }
+            opperateurEntry(e.target.dataset.btn);
             break;
         case "=":
             opperateur = false;
@@ -192,88 +160,50 @@ document.addEventListener('keydown',(e)=>{
     switch(e.key){
         case "/":
             if(!opperateur){
-                affichageEntry("÷");
-                tabEntry.push("÷");
-                opperateur = true;
+                opperateurEntry("÷");
             }
             break;
         case "7":
-            affichageEntry("7");
-            tabEntry.push("7");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "8":
-            affichageEntry("8");
-            tabEntry.push("8");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "9" :
-            affichageEntry("9");
-            tabEntry.push("9");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "*":
-            if(!opperateur){
-                affichageEntry("x");
-                tabEntry.push("x");
-                opperateur = true;
-            }
+            opperateurEntry("x");
             break;
         case "4":
-            affichageEntry("4");
-            tabEntry.push("4");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "5":
-            affichageEntry("5");
-            tabEntry.push("5");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "6" :
-            affichageEntry("6");
-            tabEntry.push("6");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "-":
-            if(!opperateur){
-                affichageEntry("-");
-                tabEntry.push("-");
-                opperateur = true;
-            }
+            opperateurEntry("-");;
             break;
         case "1":
-            affichageEntry("1");
-            tabEntry.push("1");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "2":
-            affichageEntry("2");
-            tabEntry.push("2");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "3":
-            affichageEntry("3");
-            tabEntry.push("3");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case "+":
-            if(!opperateur){
-                affichageEntry("+");
-                tabEntry.push("+");
-                opperateur = true;
-            }
+            opperateurEntry("+");
             break;
         case "0":
-            affichageEntry("0");
-            tabEntry.push("0");
-            opperateur = false;
+            valueEntry (e.key);
             break;
         case ".":
-            if(!opperateur){
-                affichageEntry(".");
-                tabEntry.push(".");
-                opperateur = true;
-            }
+            opperateurEntry(".");
             break;
         case "Enter":
             opperateur = false;
