@@ -163,12 +163,10 @@ function defCas(evenement){
             break;
     }
 }
-
 //gestion des boutons
 document.addEventListener('click',(e)=>{
     defCas(e.target.dataset.btn);
 });
-
 //gestion du clavier 
 document.addEventListener('keydown',(e)=>{
     defCas(e.key);
