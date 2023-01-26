@@ -13,12 +13,14 @@ input{
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 10px;
+    border: transparent;
 }
 
 select{
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 10px;
+    border: transparent;
 }
 
 label{
@@ -34,7 +36,6 @@ table{
     border-bottom:solid rgba(196, 196, 196, 0.404) 1px;
     text-align: center;
 }
-
 
 .hidden{
         visibility: hidden;
@@ -81,24 +82,27 @@ table{
 }
 
 
-
+.blanc{
+    background-color: rgb(216, 216, 216);
+    color: black;
+}
 
 #form1{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: flex-start;
     margin-right: 20px;
 }
 #form2{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
     align-items: flex-start;
     margin-right: 20px;
 }
 #form3{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 5px;
     align-items: center;

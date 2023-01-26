@@ -1,155 +1,232 @@
-let tabEleves=[],tabMatiere=[],tabNotes=[];
-let testAffichageEleve=false,testAffichageMatiere=false,testAffichageNote=false;
-
-const btnAjoutEleve = document.querySelector('#btnAjoutEleve');
-const btnAjoutMatiere = document.querySelector('#btnAjoutMatiere');
-const btnAjoutNote = document.querySelector('#btnAjoutNote');
-const btnDisplayELeve = document.querySelector('#btnDisplayELeve');
-const btnDisplayMatiere = document.querySelector('#btnDisplayMatiere');
-const btnDisplayNote = document.querySelector('#btnDisplayNote');
-const formContainer = document.querySelector('#formContainer');
-const hrMove = document.querySelector('#hrMove');
-const tableNote = document.querySelector('#tableNote');
-
-const nomAjout = document.querySelector('#nom');
-const prenomAjout = document.querySelector('#prenom');
-const matiereAjout = document.querySelector('#matiereEntry');
-const noteEntry = document.querySelector('#noteEntry');
-
-const eleveSelect1 = document.querySelector('#eleveSelect1');
-const eleveSelect2 = document.querySelector('#eleveSelect2');
-const matiereSelect1 = document.querySelector('#matiereSelect1');
-const matiereSelect2 = document.querySelector('#matiereSelect2');
-
-
-//fonction d'affichage pour les select
-function affichageSelectEleve (){
-    eleveSelect1.innerHTML = `<option value="">Selectionner un elèves</option>`;
-    eleveSelect2.innerHTML = `<option value="">Selectionner un elèves</option>`;
+let testBtnDisplayEleve=false,testBtnDisplayMatiere=false,testBtnDisplayNote=false;
+let tabEleves = [{nom: "TOTO",prenom: "Tata", matieres: { Maths: [16,17] ,Francais: [2] }},{nom: "TITI",prenom: "Tutu", matieres: { Maths: [11,9] ,Francais: [13] }}];
+let tabMatieres = ["Maths","Francais"];
+//recuperation du DOM pour le display du form
+const btnDisplayEleve = document.getElementById('btnDisplayELeve');
+const btnDisplayMatiere = document.getElementById('btnDisplayMatiere');
+const btnDisplayNote = document.getElementById('btnDisplayNote');
+const formContainer = document.getElementById('formContainer');
+const hrMove = document.getElementById('hrMove');
+//recuperation du DOM pour les entry
+const btnAjoutEleve = document.getElementById('btnAjoutEleve');
+const btnAjoutMatiere = document.getElementById('btnAjoutMatiere');
+const btnAjoutNote = document.getElementById('btnAjoutNote');
+const inputs = [...document.querySelectorAll('input')];
+const eleveSelect1 = document.getElementById('eleveSelect1');
+const matiereSelect1 = document.getElementById('matiereSelect1');
+const eleveSelect2 = document.getElementById('eleveSelect2');
+const matiereSelect2 = document.getElementById('matiereSelect2');
+const displayMoyenne = document.getElementById('textMoyenne');
+const tabDisplayNote = document.getElementById('tableNote')
+//fonction d'affichage des element du form
+function affichage(btn,test,form){
+    if (test){
+        form.classList.add('hidden');
+        btn.textContent = "Off";
+        btn.classList.remove('blanc');
+        return false;
+    }
+    else{
+        form.classList.remove('hidden');
+        btn.textContent = "on";
+        btn.classList.add('blanc')
+        return true;
+    }
+}
+function displayFormContainer (){
+    if(!testBtnDisplayEleve && !testBtnDisplayMatiere && !! !testBtnDisplayNote){
+        onOff('on','off');
+    }
+    else{
+        onOff('off','on');
+    }
+}
+function onOff (val1,val2){
+    formContainer.classList.remove(val1);
+    formContainer.classList.add(val2);
+    hrMove.classList.remove(val1);
+    hrMove.classList.add(val2);
+}
+//fonction d'ajout des elements
+function ajoutEleve(entryNom,entryPrenom){
+    let test = false
+    tabEleves.forEach(eleve =>{
+        if (eleve.nom == entryNom){
+            if(eleve.prenom == entryPrenom){
+                test = true;
+            }
+        }
+    });
+    if(!test){
+        tabEleves.push({nom:entryNom,prenom:entryPrenom,matieres:{}});
+        for (let matiere of tabMatieres){
+            tabEleves[tabEleves.length-1].matieres[matiere] =[];
+        }
+        refreshEleve();
+    }
+}
+function ajoutMatiere(intituleMatiere){
+    let index = tabMatieres.indexOf(intituleMatiere);
+    if(index == -1){
+        tabMatieres.push(intituleMatiere);
+        for (let eleve of tabEleves){
+            eleve.matieres[intituleMatiere]=[];
+        }
+        refreshMatiere();
+    }
+}
+function ajoutNote (valueEleve,valueMatiere,note){
+    if(valueEleve!="" && valueMatiere!=""){
+        let intitule = tabMatieres[Number(valueMatiere)]
+        tabEleves[Number(valueEleve)].matieres[intitule].push(note)
+    }
+    
+}
+function majPremiereLettre(tabMot){
+    tabMot[0]= tabMot[0].toUpperCase();
+    return tabMot.join('');
+}
+function resetInput (indexinput){
+    inputs[indexinput].value = "";
+}
+//refresh l'affichage des select
+function refreshEleve (){
+    eleveSelect1.innerHTML = `<option value="">Selectioner un eleve</option>`
+    eleveSelect2.innerHTML = `<option value="">Touts les eleves</option>`
     tabEleves.forEach(eleve => {
         eleveSelect1.innerHTML +=`<option value="${tabEleves.indexOf(eleve)}">${eleve.nom} ${eleve.prenom}</option>`;
         eleveSelect2.innerHTML +=`<option value="${tabEleves.indexOf(eleve)}">${eleve.nom} ${eleve.prenom}</option>`;
     });
 }
-function affichageSelectMatiere (){
+function refreshMatiere(){
     matiereSelect1.innerHTML = `<option value="">Selectionner une matière</option>`;
-    matiereSelect2.innerHTML = `<option value="">Selectionner une matière</option>`;
-    tabMatiere.forEach(objMatiere => {
-        matiereSelect1.innerHTML +=`<option value="${tabMatiere.indexOf(objMatiere)}">${objMatiere.matiere} </option>`;
-        matiereSelect2.innerHTML +=`<option value="${tabMatiere.indexOf(objMatiere)}">${objMatiere.matiere} </option>`;
-    });
-}
-
-//fonction d'ajout des objs dans les tableaux
-function addEleve(nouveauNom,nouveauPrenom){
-    tabEleves.push({nom:nouveauNom,prenom:nouveauPrenom});
-}
-function addMatiere(intitule){
-    tabMatiere.push({matiere:intitule});
-}
-function addNote (ideleve,idmatiere,entryNote){
-    tabNotes.push({idEleve:ideleve,idMatiere:idmatiere,note:entryNote});
-}
-
-//fonction pour le gestion du display de la div formContainer // des div de form
-function displayForm(test,div,btn){
-    if(test){
-        div.classList.add('hidden');
-        btn.textContent = "Off";
-        test = false;
-    }
-    else{
-        div.classList.remove('hidden');
-        btn.textContent = "On";
-        test = true;
-    }
-    return test;
-}
-function displayFormContainer (){
-    if(!testAffichageEleve && !testAffichageMatiere && !! !testAffichageNote){
-        formContainer.classList.remove('on');
-        formContainer.classList.add('off');
-        hrMove.classList.remove('on');
-        hrMove.classList.add('off');
-    }
-    else{
-        formContainer.classList.add('on');
-        formContainer.classList.remove('off');
-        hrMove.classList.add('on');
-        hrMove.classList.remove('off');
+    matiereSelect2.innerHTML = `<option value="">Toutes les matieres</option>`;
+    for (let i=0; i<tabMatieres.length;i++){
+        matiereSelect1.innerHTML +=`<option value="${i}">${tabMatieres[i]} </option>`;
+        matiereSelect2.innerHTML +=`<option value="${i}">${tabMatieres[i]} </option>`;
     }
 }
-
-//fonction de recherche de note 
-function searchNote (ideleve,idmatiere=""){
-    let somme =0,nbNote=0;
-    tableNote.innerHTML = ""
-    if(idmatiere){
-        for(let i of tabNotes){
-            if(i.idEleve == ideleve && i.idMatiere == idmatiere){
-                somme += i.note;
-                nbNote++;
-                tableNote.innerHTML += `<tr><td>${tabEleves[i.idEleve].nom}</td> <td>${tabEleves[i.idEleve].prenom}</td> <td>${tabMatiere[i.idMatiere].matiere}</td> <td>${i.note}</td></tr>`
+//calcul de moyenne lorsque que aucun eleve est selectionné
+function calculMoyenneClasse (valueMatiere){
+    let somme = 0, nbNotes=0;
+    tabDisplayNote.innerHTML = ""
+    if(valueMatiere == ""){
+        tabEleves.forEach(eleve =>{
+            for (let matiere in eleve.matieres){
+                for (let note of eleve.matieres[matiere]){
+                    somme+=note;
+                    nbNotes++;
+                    tabDisplayNote.innerHTML += `<tr><td>${eleve.nom}</td> <td>${eleve.prenom}</td> <td>${matiere}</td> <td>${note}</td></tr>`
+                }
+            }
+        })
+        
+    }
+    else {
+        let intitule = tabMatieres[Number(valueMatiere)]
+        tabEleves.forEach(eleve =>{
+                for (let note of eleve.matieres[intitule]){
+                    somme+=note;
+                    nbNotes++;
+                    tabDisplayNote.innerHTML += `<tr><td>${eleve.nom}</td> <td>${eleve.prenom}</td> <td>${intitule}</td> <td>${note}</td></tr>`
+                }
+        })
+    }
+    return Math.round((somme/nbNotes)*100)/100;
+}
+//calcul de moyenne lorsque un eleve est selectionné
+function calculMoyenne (indexEleve,valueMatiere){
+    let somme =0,nbNotes=0;
+    tabDisplayNote.innerHTML = ""
+    if(valueMatiere==""){
+        for(let matiere in tabEleves[Number(indexEleve)].matieres){
+            for (let note of tabEleves[Number(indexEleve)].matieres[matiere]){
+                somme+=note;
+                nbNotes++;
+                tabDisplayNote.innerHTML += `<tr><td>${tabEleves[Number(indexEleve)].nom}</td> <td>${tabEleves[Number(indexEleve)].prenom}</td> <td>${matiere}</td> <td>${note}</td></tr>`
             }
         }
+        
     }
     else{
-        for(let i of tabNotes){
-            if(i.idEleve == ideleve ){
-                somme += i.note;
-                nbNote++;
-                tableNote.innerHTML += `<tr><td>${tabEleves[i.idEleve].nom}</td> <td>${tabEleves[i.idEleve].prenom}</td> <td>${tabMatiere[i.idMatiere].matiere}</td> <td>${i.note}</td></tr>`
-            }
+        let intitule = tabMatieres[Number(valueMatiere)]
+        for (let note of tabEleves[Number(indexEleve)].matieres[intitule]){
+            somme+=note;
+            nbNotes++;
+            tabDisplayNote.innerHTML += `<tr><td>${tabEleves[Number(indexEleve)].nom}</td> <td>${tabEleves[Number(indexEleve)].prenom}</td> <td>${intitule}</td> <td>${note}</td></tr>`
         }
     }
-    return (Math.round((somme/nbNote)*100)/100);
+    return Math.round((somme/nbNotes)*100)/100;
 }
-
-function displayMean (){
-    if(eleveSelect2.value!=""){
-        let moyenne = searchNote(eleveSelect2.value,matiereSelect2.value);
-        if(matiereSelect2.value){
-            document.querySelector('#textMoyenne').innerHTML =`Moyenne de <b>${tabMatiere[matiereSelect2.value].matiere}</b> de <b>${tabEleves[eleveSelect2.value].nom} ${tabEleves[eleveSelect2.value].prenom}</b> est : <b>${moyenne}</b>`;
+function affichageMoyenne (indexEleve,indexMatiere,moyenne){
+    if(indexEleve == ""){
+        if(indexMatiere == ""){
+            displayMoyenne.innerHTML = `La moyenne <b>generale</b> de <b>classe</b> est de <b>${moyenne}</b>`
         }
         else{
-            document.querySelector('#textMoyenne').innerHTML =`Moyenne generale de <b>${tabEleves[eleveSelect2.value].nom} ${tabEleves[eleveSelect2.value].prenom}</b> est : <b>${moyenne}</b>`;
+            displayMoyenne.innerHTML = `La moyenne <b>${tabMatieres[indexMatiere]}</b> de <b>classe</b> est de <b>${moyenne}</b>`
+        }
+    }
+    else{
+        if(indexMatiere == ""){
+            displayMoyenne.innerHTML = `La moyenne <b>generale</b> de <b>${tabEleves[indexEleve].nom} ${tabEleves[indexEleve].prenom}</b> est de <b>${moyenne}</b>`
+        }
+        else{
+            displayMoyenne.innerHTML = `La moyenne <b>${tabMatieres[indexMatiere]}</b> de <b>${tabEleves[indexEleve].nom} ${tabEleves[indexEleve].prenom}</b> est de <b>${moyenne}</b>`
         }
     }
 }
-
-
-//boutton d'affichage des forms
-btnDisplayELeve.addEventListener('click',()=>{
-    testAffichageEleve = displayForm(testAffichageEleve,document.querySelector('#form1'),btnDisplayELeve)
-    displayFormContainer ();
+function selecteurNote(){
+    let mean = 0;
+    if(eleveSelect2.value == ""){
+        mean =calculMoyenneClasse (matiereSelect2.value);
+        affichageMoyenne (eleveSelect2.value,matiereSelect2.value,mean);
+    }
+    else{
+        mean = calculMoyenne (eleveSelect2.value,matiereSelect2.value);
+        affichageMoyenne (eleveSelect2.value,matiereSelect2.value,mean);
+    }
+}
+//btn display form
+btnDisplayEleve.addEventListener('click',()=>{
+    testBtnDisplayEleve= affichage(btnDisplayEleve,testBtnDisplayEleve,document.getElementById('form1'));
+    displayFormContainer();
 });
 btnDisplayMatiere.addEventListener('click',()=>{
-    testAffichageMatiere = displayForm(testAffichageMatiere,document.querySelector('#form2'),btnDisplayMatiere)
-    displayFormContainer ();
+    testBtnDisplayMatiere= affichage(btnDisplayMatiere,testBtnDisplayMatiere,document.getElementById('form2'));
+    displayFormContainer();
 });
 btnDisplayNote.addEventListener('click',()=>{
-    testAffichageNote = displayForm(testAffichageNote,document.querySelector('#form3'),btnDisplayNote)
-    displayFormContainer ();
-});
+    refreshEleve();
+    refreshMatiere();
+    testBtnDisplayNote= affichage(btnDisplayNote,testBtnDisplayNote,document.getElementById('form3'));
+    displayFormContainer();
 
-//boutons d'ajout des entry
+});
+//btn ajout des elements
 btnAjoutEleve.addEventListener('click',()=>{
-    addEleve(nomAjout.value,prenomAjout.value);
-    affichageSelectEleve();
+    let prenom = majPremiereLettre([...(inputs[1].value).toLowerCase()]);
+    ajoutEleve((inputs[0].value).toUpperCase(),prenom);
+    resetInput(0);
+    resetInput(1);
 });
 btnAjoutMatiere.addEventListener('click',()=>{
-    addMatiere(matiereAjout.value);
-    affichageSelectMatiere();
-});
+    let intitule = majPremiereLettre([...(inputs[2].value).toLowerCase()]);
+    ajoutMatiere(intitule);
+    resetInput(2);
+}); 
 btnAjoutNote.addEventListener('click',()=>{
-    addNote(eleveSelect1.value,matiereSelect1.value,Number(noteEntry.value));
+    ajoutNote(eleveSelect1.value,matiereSelect1.value,Number(inputs[3].value));
+    resetInput(3);
 });
-
-
-//affichage de la moyenne 
+//selecteur des notes pour l'affichage/calcul de moyenne
 eleveSelect2.addEventListener('change',()=>{
-    displayMean();
+    selecteurNote();
+});
+matiereSelect2.addEventListener('change',(e)=>{
+    selecteurNote();
 })
-matiereSelect2.addEventListener('change',()=>{
-    displayMean();
-})
+onload = () => {
+    refreshEleve();
+    refreshMatiere(); 
+};
