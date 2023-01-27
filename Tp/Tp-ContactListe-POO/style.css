@@ -1,0 +1,58 @@
+body,html{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+
+#container{
+    width: 80%;
+    margin: auto;
+}
+
+#container>h2{
+    text-align: center;
+}
+
+#nom,#prenom{
+    width: 49%;
+    height: 20px;
+}
+
+#dateNaissance,#telephone,#email{
+    width: 32.5%;
+    height: 20px;
+    margin-top: 8px;
+}
+#envoyer{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(10, 145, 10);
+    color: white;
+    border: transparent;
+    margin-top: 10px;
+}
+
+#containerInputText{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+table{
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    border: none;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: rgb(56, 55, 55);
+    color: white;
+}
+
+td{
+    border: solid rgb(56, 55, 55) 1px;
+}

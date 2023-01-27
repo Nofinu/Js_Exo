@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <td>Titre</td><td>Nom</td><td>Prenom</td><td>Date de Naissance</td><td>Telephone</td><td>Email</td>
+                </tr>
+                <tbody id="table">
+                </tbody>
+            </thead>
+        </table>
+        <div id="container">
+            <h2>Ajouter Contact</h2>
+            <div>
+                <input type="radio" id="choixMr" name="choix" value="Mr">
+                <label for="choixMr">Mr</label>
+                <input type="radio" id="choixMme" name="choix" value="Mme">
+                <label for="choixMme">Mme</label>
+            </div>
+            <div id="containerInputText">
+                <input type="text" name="nom" id="nom" placeholder="Nom :">
+                <input type="text" name="prenom" id="prenom" placeholder="Prenom :">
+                <input type="date" name="dateNaissance" id="dateNaissance">
+                <input type="text" name="telephone" id="telephone" placeholder="Telephone :">
+                <input type="text" name="email" id="email" placeholder="Email :">
+                <button id="envoyer"> Ajouter </button>
+            </div>
+        </div>
+    </main>
+    
+</body>
+<script src="./index.js" type="module"></script>
+</html>
