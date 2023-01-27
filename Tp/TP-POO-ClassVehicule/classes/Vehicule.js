@@ -6,6 +6,6 @@ export default class Vehicule {
         this.annee = annee
     }
     display(){
-        return this.marque +" - "+this.modele + " - "+this.kilometrage+"km - " + this.annee;
+        return this.marque +" - "+this.modele + " - "+this.kilometrage+" km - " + this.annee;
     }
 }
