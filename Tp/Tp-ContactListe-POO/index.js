@@ -5,3 +5,4 @@ const inputs = document.querySelectorAll('input');
 const table = document.getElementById('tableBody');
 
 let ihm = new Ihm(form,inputs,table);
+ihm.start();

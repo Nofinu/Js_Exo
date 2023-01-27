@@ -9,6 +9,16 @@ body,html{
     width: 80%;
     margin: auto;
 }
+/* #container{
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+} */
+
 
 #container>h2{
     text-align: center;
@@ -56,3 +66,10 @@ thead{
 td{
     border: solid rgb(56, 55, 55) 1px;
 }
+
+/* select{
+    margin-right: 50%;
+}
+#btnSupr,#btnModiff{
+    width: 48%;
+} */
