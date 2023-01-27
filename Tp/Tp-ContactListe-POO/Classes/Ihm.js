@@ -25,7 +25,6 @@ export default class Ihm {
         }
         this.refreshTab();
     };
-
     refreshTab (){
         this.table.innerHTML ="";
         for(let contact of this.contacts){
