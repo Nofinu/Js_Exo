@@ -9,6 +9,4 @@ const tableProduit = document.querySelector('#tableProduit');
 const Ihm = new Interface(tableProduit,tableService,formulaire,choix);
 Ihm.start();
 
-onload = () => { 
-    formulaire.reset();
-}
+
