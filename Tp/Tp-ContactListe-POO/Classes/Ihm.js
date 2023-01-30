@@ -15,7 +15,6 @@ export default class Ihm {
     }
     AddContact (){
         if(this.inputs[0].checked){
-            console.log()
             const contact = new Contact(this.inputs[0].value,this.inputs[2].value,this.inputs[3].value,this.inputs[4].value,this.inputs[5].value,this.inputs[6].value);
             this.contacts.push(contact);
         }
