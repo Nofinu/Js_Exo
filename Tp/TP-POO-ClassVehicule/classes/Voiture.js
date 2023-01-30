@@ -6,6 +6,6 @@ export default class Voiture extends Vehicule{
         this.clim = clim;
     }
     display(){
-        return super.display()+" - "+this.clim;
+        return "voiture : "+super.display()+" - "+this.clim;
     }
 }

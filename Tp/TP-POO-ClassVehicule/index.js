@@ -8,5 +8,5 @@ const result = document.querySelector('#result');
 
 result.innerHTML = "<h2>Travaux pratique POO</h2><hr>"
 
-result.innerHTML += `<p><b>${"Voiture"}</b> : ${voiture.display()}</p>`
-result.innerHTML += `<p><b>${"Moto"}</b> : ${moto.display()}</p>`
+result.innerHTML += `<p>${voiture.display()}</p>`
+result.innerHTML += `<p>${moto.display()}</p>`
