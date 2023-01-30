@@ -1,0 +1,78 @@
+body,html{
+    margin: 0;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: auto;
+    gap: 10px;
+}
+
+table{
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+thead{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    height: 35px;
+}
+
+#formContainer{
+    width: 80%;
+    margin: auto;
+}
+
+#formulaire{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#titre,#prix,#description,#domaine,#stock{
+    margin-top: 5px;
+    height: 20px;
+    padding: 5px;
+}
+
+#titre,#prix{
+    width: 48%;
+}
+#description,#domaine,#stock{
+    width: 100%;
+}
+
+#description{
+    resize: none;
+    height: 50px;
+}
+
+.off{
+    display: none;
+}
+
+#labelRadio{
+    margin-right:500px ;
+}
+
+button{
+    background-color: rgb(11, 150, 11);
+    color: white;
+    width: 100%;
+    height: 25px;
+    border: transparent;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.tablecontainer{
+    width: 100%;
+}

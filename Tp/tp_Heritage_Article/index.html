@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div id="container">
+            <span id="product">Produits :</span>
+            <span id="service">Services :</span>
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Titre</td>
+                            <td>Prix</td>
+                            <td>Description</td>
+                            <td>Stock</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tableProduit">
+    
+                    </tbody>
+                </table>
+            </div>
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Titre</td>
+                            <td>Prix</td>
+                            <td>Description</td>
+                            <td>Domaine</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tableService">
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="formContainer">
+
+            <form id="formulaire">
+                <input type="radio" name="choix" id="produit" >
+                <label >Produit</label>
+                <input type="radio" name="choix" id="service">
+                <label id="labelRadio">Service</label>
+                <input type="text" name="titre" id="titre" placeholder="Titre">
+                <input type="number" name="prix" id="prix" placeholder="Prix">
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+                <input type="text" name="domaine" id="domaine" placeholder="Domaine">
+                <input type="number" name="stock" id="stock" placeholder="Stock">
+                <button id="send">Valider</button>
+            </form>
+        </div>
+    </main>
+    
+</body>
+<script src="./main.js" type="module"></script>
+</html>
