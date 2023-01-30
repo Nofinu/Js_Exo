@@ -27,6 +27,9 @@ export default class Ihm {
                 this.addService();
             }
         })
+        onload = () => { 
+            formulaire.reset();
+        }
     }
 
     changeAffichage(){
