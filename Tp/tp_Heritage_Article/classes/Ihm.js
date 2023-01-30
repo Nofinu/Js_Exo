@@ -13,7 +13,6 @@ export default class Ihm {
     start(){
         this.radioBtn[0].addEventListener('change',()=>{
             this.changeAffichage()
-
         });
         this.radioBtn[1].addEventListener('change',()=>{
             this.changeAffichage()
@@ -21,17 +20,16 @@ export default class Ihm {
         this.formulaire.addEventListener('submit',(e)=>{
             e.preventDefault();
             if (this.radioBtn[0].checked){
-                this.addProduit();
+                this.addElement(this.produits,this.tableProduit,"stock")
             }
             else{
-                this.addService();
+                this.addElement(this.services,this.tableService,"domaine");
             }
         })
         onload = () => { 
             formulaire.reset();
         }
     }
-
     changeAffichage(){
         if (this.radioBtn[0].checked){
             this.formulaire.querySelector("input[name='stock']").classList.remove('off');
@@ -42,39 +40,28 @@ export default class Ihm {
             this.formulaire.querySelector("input[name='stock']").classList.add('off');
         }
     }
-    addProduit(){
+    addElement(table,tabAffichage,elemAffichage){
         const inputs = this.formulaire.querySelectorAll('input');
         const textarea = this.formulaire.querySelector('textarea');
-        const produit = new Produit(inputs[2].value,inputs[3].value,textarea.value,inputs[5].value);
-        this.produits.push(produit)
-        this.refreshTabProduit()
-    }
-    addService(){
-        const inputs = this.formulaire.querySelectorAll('input');
-        const textarea = this.formulaire.querySelector('textarea')
-        const service = new Service(inputs[2].value,inputs[3].value,textarea.value,inputs[4].value);
-        this.services.push(service);
-        this.refreshTabService()
-    }
-    refreshTabProduit(){
-        this.tableProduit.innerHTML =""
-        for(let produit of this.produits){
-            this.tableProduit.innerHTML += `<tr>
-            <td>${produit.titre}</td>
-            <td>${produit.prix}</td>
-            <td>${produit.description}</td>
-            <td>${produit.stock}</td>
-            </tr>`
+        let element
+        if(this.radioBtn[0].checked){
+            element = new Produit(inputs[2].value,inputs[3].value,textarea.value,inputs[5].value);
         }
+        else{
+            element = new Service(inputs[2].value,inputs[3].value,textarea.value,inputs[4].value);
+        }
+        
+        table.push(element);
+        this.refreshTab(tabAffichage,table,elemAffichage)
     }
-    refreshTabService(){
-        this.tableService.innerHTML =""
-        for(let service of this.services){
-            this.tableService.innerHTML += `<tr>
-            <td>${service.titre}</td>
-            <td>${service.prix}</td>
-            <td>${service.description}</td>
-            <td>${service.domaine}</td>
+    refreshTab(tabAffichage,tabDonne,elemAffichage){
+        tabAffichage.innerHTML =""
+        for(let elem of tabDonne){
+            tabAffichage.innerHTML += `<tr>
+            <td>${elem.titre}</td>
+            <td>${elem.prix}</td>
+            <td>${elem.description}</td>
+            <td>${elem[elemAffichage]}</td>
             </tr>`
         }
     }

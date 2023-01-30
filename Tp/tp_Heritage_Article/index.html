@@ -10,8 +10,8 @@
 <body>
     <main>
         <div id="container">
-            <span id="product">Produits :</span>
-            <span id="service">Services :</span>
+            <span id="product"><b>Produits :</b></span>
+            <span id="service"><b>Services :</b></span>
             <div class="tablecontainer">
                 <table>
                     <thead>
@@ -27,7 +27,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tablecontainer">
+            <div>
                 <table>
                     <thead>
                         <tr>
@@ -43,21 +43,18 @@
                 </table>
             </div>
         </div>
-        <div id="formContainer">
-
-            <form id="formulaire">
-                <input type="radio" name="choix" id="produit" >
-                <label >Produit</label>
-                <input type="radio" name="choix" id="service">
-                <label id="labelRadio">Service</label>
-                <input type="text" name="titre" id="titre" placeholder="Titre">
-                <input type="number" name="prix" id="prix" placeholder="Prix">
-                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
-                <input type="text" name="domaine" id="domaine" placeholder="Domaine">
-                <input type="number" name="stock" id="stock" placeholder="Stock">
-                <button id="send">Valider</button>
-            </form>
-        </div>
+        <form id="formulaire">
+            <input type="radio" name="choix" id="produit" >
+            <label >Produit</label>
+            <input type="radio" name="choix" id="service">
+            <label id="labelRadio">Service</label>
+            <input type="text" name="titre" id="titre" placeholder="Titre">
+            <input type="number" name="prix" id="prix" placeholder="Prix">
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+            <input type="text" name="domaine" id="domaine" placeholder="Domaine">
+            <input type="number" name="stock" id="stock" placeholder="Stock">
+            <button id="send">Valider</button>
+        </form>
     </main>
     
 </body>

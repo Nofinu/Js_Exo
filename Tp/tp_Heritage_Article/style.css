@@ -9,6 +9,7 @@ body,html{
     width: 80%;
     margin: auto;
     gap: 10px;
+    margin-bottom: 35px;
 }
 
 table{
@@ -25,12 +26,10 @@ thead{
     height: 35px;
 }
 
-#formContainer{
-    width: 80%;
-    margin: auto;
-}
 
 #formulaire{
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -44,7 +43,7 @@ thead{
 }
 
 #titre,#prix{
-    width: 48%;
+    width: 46%;
 }
 #description,#domaine,#stock{
     width: 100%;
@@ -60,7 +59,7 @@ thead{
 }
 
 #labelRadio{
-    margin-right:500px ;
+    margin-right:78% ;
 }
 
 button{
@@ -73,6 +72,3 @@ button{
     margin-top: 15px;
 }
 
-.tablecontainer{
-    width: 100%;
-}
