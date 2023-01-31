@@ -40,11 +40,13 @@ export default class Ihm {
         let placeVehicule = 0;
         for (let vehicule of this.vehicules){
             if(vehicule.imatricule == entry){
-                this.calculPrix(vehicule,entry)
-                vehicule.exitHours = new Date().getTime()
-                vehicule.status = true;
-                console.log(this.vehicules)
-                return;
+                if (!vehicule.status){
+                    this.calculPrix(vehicule,entry)
+                    vehicule.exitHours = new Date().getTime()
+                    vehicule.status = true;
+                    console.log(this.vehicules)
+                    return;
+                }
             }
             placeVehicule++;
         }
