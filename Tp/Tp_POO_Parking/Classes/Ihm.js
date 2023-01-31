@@ -23,9 +23,9 @@ export default class Ihm {
     }
 
     ajouterVehicule(entry){
-        console.log(this.vehicules)
-        const result = this.vehicules.find(({ imatricule }) => imatricule == entry);
-        console.log(result);
+        // console.log(this.vehicules)
+        // const result = this.vehicules.find(({ imatricule }) => imatricule == entry);
+        // console.log(result);
         for(let vehicule of this.vehicules){
             if(vehicule.imatricule == entry){
                 if(vehicule.exitHours == 0){
