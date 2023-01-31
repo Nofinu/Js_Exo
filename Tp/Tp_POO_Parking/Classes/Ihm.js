@@ -6,7 +6,7 @@ export default class Ihm {
         this.btnTicket = btnTicket;
         this.divDisplay = divDisplay;
         this.input = input;
-        this.vehicules = [];
+        this.vehicules = new Array();
     }
 
     start(){
@@ -23,9 +23,12 @@ export default class Ihm {
     }
 
     ajouterVehicule(entry){
+        console.log(this.vehicules)
+        const result = this.vehicules.find(({ imatricule }) => imatricule == entry);
+        console.log(result);
         for(let vehicule of this.vehicules){
             if(vehicule.imatricule == entry){
-                if(!vehicule.status){
+                if(vehicule.exitHours == 0){
                     this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} est deja dans le parking !</p>`,"red");
                     return;
                 }
@@ -40,10 +43,9 @@ export default class Ihm {
         let placeVehicule = 0;
         for (let vehicule of this.vehicules){
             if(vehicule.imatricule == entry){
-                if (!vehicule.status){
+                if (vehicule.exitHours == 0){
                     this.calculPrix(vehicule,entry)
                     vehicule.exitHours = new Date().getTime()
-                    vehicule.status = true;
                     console.log(this.vehicules)
                     return;
                 }

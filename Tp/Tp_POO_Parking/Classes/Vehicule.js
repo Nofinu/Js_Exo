@@ -3,7 +3,6 @@ export default class Vehicule {
         this.plaqueImatricule = plaqueImatricule;
         this.heureEntre = heureEntre;
         this.heureSortie = 0;
-        this.sortie = false;
     }
     get imatricule(){
         return this.plaqueImatricule;
@@ -11,13 +10,10 @@ export default class Vehicule {
     get entryHours(){
         return this.heureEntre;
     }
+    get exitHours(){
+        return this.heureSortie;
+    }
     set exitHours(value){
         this.heureSortie = value;
-    }
-    set status(value){
-        this.sortie = value;
-    }
-    get status(){
-        return this.sortie;
     }
 }
