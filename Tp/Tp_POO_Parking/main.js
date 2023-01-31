@@ -7,6 +7,3 @@ const input = document.querySelector('#entry')
 const ihm = new Ihm(btns[0],btns[1],divDisplay,input);
 ihm.start();
 
-
-
-

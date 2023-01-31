@@ -11,10 +11,20 @@ export default class Ihm {
 
     start(){
         this.btnPayer.addEventListener('click',()=>{
-            this.sortieVehicule(this.input.value)
+            if(this.testEntry(this.input.value)){
+                this.sortieVehicule(this.input.value);
+            }
+            else{
+                this.AffichageMsg("<p>veuiller rentrer une plaque correcte</p>",'red');
+            }
         });
         this.btnTicket.addEventListener('click',()=>{
-            this.ajouterVehicule(this.input.value);
+            if(this.testEntry(this.input.value)){
+                this.ajouterVehicule(this.input.value);
+            }
+            else{
+                this.AffichageMsg("</p>veuiller rentrer une plaque correcte</p>",'red');
+            }
         });
         const v1 = new Vehicule("123",1675154479310),v2 = new Vehicule("124",1675156808481),v3 = new Vehicule("128",1675154479310);
         this.vehicules.push(v1);
@@ -22,53 +32,59 @@ export default class Ihm {
         this.vehicules.push(v3);
     }
 
+    testEntry(entry){
+        if (entry == ""){
+            return false;
+        }
+        return true;
+    }
+
     ajouterVehicule(entry){
-        // console.log(this.vehicules)
-        // const result = this.vehicules.find(({ imatricule }) => imatricule == entry);
-        // console.log(result);
-        for(let vehicule of this.vehicules){
-            if(vehicule.imatricule == entry){
-                if(vehicule.exitHours == 0){
-                    this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} est deja dans le parking !</p>`,"red");
-                    return;
-                }
-            }
+        const result = this.vehicules.findLast(({ imatricule }) => imatricule == entry);
+        if(result == undefined){
+            const vehicule = new Vehicule(entry,new Date().getTime())
+            this.vehicules.push(vehicule)
+            this.AffichageMsg(`<p>le véhicule possedant la plaque <b>${entry}</b> est maintenant dans le parking !</p>`,'green');
+            return
+        }
+        if(result.exitHours == 0){
+            this.AffichageMsg(`<p>le véhicule possedant la plaque <b>${entry}</b> est deja dans le parking !</p>`,"red");
+            return;
         }
         const vehicule = new Vehicule(entry,new Date().getTime())
         this.vehicules.push(vehicule)
-        this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} est maintenant dans le parking !</p>`,'green');
+        this.AffichageMsg(`<p>le véhicule possedant la plaque <b>${entry}</b> est maintenant dans le parking !</p>`,'green');
     }
 
     sortieVehicule(entry){
-        let placeVehicule = 0;
-        for (let vehicule of this.vehicules){
-            if(vehicule.imatricule == entry){
-                if (vehicule.exitHours == 0){
-                    this.calculPrix(vehicule,entry)
-                    vehicule.exitHours = new Date().getTime()
-                    console.log(this.vehicules)
-                    return;
-                }
-            }
-            placeVehicule++;
+        const result = this.vehicules.findLast(({ imatricule }) => imatricule == entry);
+        if(result == undefined){
+            this.AffichageMsg(`<p>le véhicule possedant la plaque <b>${entry}</b> n'est pas dans le parking !</p>`,"red");
+            return;
         }
-        this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} n'est pas dans le parking !</p>`,"red");
+        if (result.exitHours == 0){
+            this.calculPrix(result,entry)
+            result.exitHours = new Date().getTime()
+            console.log(this.vehicules)
+            return;
+        }
+        this.AffichageMsg(`<p>le véhicule possedant la plaque <b>${entry}</b> n'est pas dans le parking !</p>`,"red");
     }
 
     calculPrix(vehicule,entry){
         const heureSortie = new Date().getTime();
         let TempsDansParking = Math.round(((heureSortie - vehicule.entryHours)/1000)/60);
         if(TempsDansParking <= 15){ //15
-            this.AffichageMsg(`<p>Le prix a payer pour le véhicule ${entry} est de 0.8 €</p>`,"yellow");
+            this.AffichageMsg(`<p>Le prix a payer pour le véhicule <b>${entry}</b> est de 0.8 €</p>`,"yellow");
         }
         else if (TempsDansParking <= 30){//30
-            this.AffichageMsg(`<p>Le prix a payer pour le véhicule ${entry} est de 1.3 €</p>`,"yellow");
+            this.AffichageMsg(`<p>Le prix a payer pour le véhicule <b>${entry}</b> est de 1.3 €</p>`,"yellow");
         }
         else if(TempsDansParking <= 45){//45
-            this.AffichageMsg(`<p>Le prix a payer pour le véhicule ${entry} est de 1.7 €</p>`,"yellow");
+            this.AffichageMsg(`<p>Le prix a payer pour le véhicule <b>${entry}</b> est de 1.7 €</p>`,"yellow");
         }
         else{
-            this.AffichageMsg(`<p>Le prix a payer pour le véhicule ${entry} est de 6 €</p>`,"yellow");
+            this.AffichageMsg(`<p>Le prix a payer pour le véhicule <b>${entry}</b> est de 6 €</p>`,"yellow");
         }
     }
 
