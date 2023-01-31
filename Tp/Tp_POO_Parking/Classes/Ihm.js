@@ -6,21 +6,32 @@ export default class Ihm {
         this.btnTicket = btnTicket;
         this.divDisplay = divDisplay;
         this.input = input;
-        this.vehicules = [{plaqueImatricule:"123",heureEntre:1675154479310},{plaqueImatricule:"124",heureEntre:1675156808481},{plaqueImatricule:"128",heureEntre:1675154479310},];
+        this.vehicules = [];
     }
+
     start(){
         this.btnPayer.addEventListener('click',()=>{
             this.sortieVehicule(this.input.value)
         });
         this.btnTicket.addEventListener('click',()=>{
+            console.log(this.vehicules)
             this.ajouterVehicule(this.input.value);
         });
+        const v1 = new Vehicule("123",1675154479310),v2 = new Vehicule("124",1675156808481),v3 = new Vehicule("128",1675154479310);
+        this.vehicules.push(v1);
+        this.vehicules.push(v2);
+        this.vehicules.push(v3);
     }
+
     ajouterVehicule(entry){
         for(let vehicule of this.vehicules){
-            if(vehicule.plaqueImatricule == entry){
-                this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} est deja dans le parking !</p>`,"red");
-                return;
+            console.log(vehicule.imatricule)
+            if(vehicule.imatricule == entry){
+                console.log(vehicule.status)
+                if(!vehicule.status){
+                    this.AffichageMsg(`<p>le véhicule possedant la plaque ${entry} est deja dans le parking !</p>`,"red");
+                    return;
+                }
             }
         }
         const vehicule = new Vehicule(entry,new Date().getTime())
@@ -32,9 +43,10 @@ export default class Ihm {
         let placeVehicule = 0;
         console.log(this.vehicules)
         for (let vehicule of this.vehicules){
-            if(vehicule.plaqueImatricule == entry){
+            if(vehicule.imatricule == entry){
                 this.calculPrix(vehicule,entry)
-                this.vehicules.splice(placeVehicule,1);
+                vehicule.exitHours = new Date().getTime()
+                vehicule.status = true;
                 console.log(this.vehicules)
                 return;
             }
@@ -46,7 +58,7 @@ export default class Ihm {
     calculPrix(vehicule,entry){
         const heureSortie = new Date().getTime();
         console.log(heureSortie)
-        let TempsDansParking = Math.round(((heureSortie - vehicule.heureEntre)/1000)/60);
+        let TempsDansParking = Math.round(((heureSortie - vehicule.entryHours)/1000)/60);
         console.log(TempsDansParking)
         if(TempsDansParking <= 15){ //15
             this.AffichageMsg(`<p>Le prix a payer pour le véhicule ${entry} est de 0.8 €</p>`,"yellow");
