@@ -1,0 +1,76 @@
+body,html{
+    margin: 0;
+}
+
+p{
+    margin-top: 40px;
+}
+
+#container{
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid rgba(0, 0, 0, 0.411) 1px;
+    padding: 10px;
+    border-radius: 5px;
+}
+h2{
+    width: 100%;
+    text-align: center;
+}
+
+#inputContainer{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+}
+
+#entry{
+    width: 90%;
+    padding: 5px;
+}
+
+#payer{
+    width: 10%;
+    background-color: rgb(3, 158, 3);
+    color: white;
+    border: transparent;
+    border-radius: 5px;
+}
+
+#ticket{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: transparent;
+    padding: 10px;
+    background-color: rgb(110, 110, 110);
+    color: white;
+}
+
+.green,.red,.yellow{
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+.green{
+    background-color: rgba(12, 182, 12, 0.356);
+    color: green;
+}
+
+.red{
+    background-color: rgba(243, 28, 28, 0.356);
+    color: red;
+}
+
+.yellow{
+    background-color: rgba(201, 201, 16, 0.322);
+    color: black;
+}
