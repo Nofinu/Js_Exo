@@ -9,10 +9,27 @@ form{
     margin: auto;
 }
 
+#container{
+    margin: auto;
+    width: 80%;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 #inputTitle,#content,#confirm{
     padding: 10px;
     resize: none;
     margin-bottom: 5px;
+    border: transparent;
+    border-radius: 5px;
+}
+
+button{
+    border: transparent;
+    border-radius: 5px;
 }
 
 #confirm{
@@ -21,8 +38,6 @@ form{
 
 button{
     color: white;
-    border: transparent;
-    border-radius: 5px;
 }
 
 
@@ -31,12 +46,16 @@ button{
     margin-left: 6%;
     margin-bottom: 10px;
     padding: 5px;
+    border: transparent;
+    border-radius: 5px;
 }
 
 #btnResearch{
     width: 15%;
     padding: 7px;
     background-color: rgb(7, 114, 214);
+    border: transparent;
+    border-radius: 5px;
 }
 
 table{
@@ -68,14 +87,14 @@ tbody>tr{
     width: 10%;
 }
 #tdContenu{
-    width: 50%;
+    width: 45%;
 }
 #tdTitre{
     width: 20%;
 }
 
 #tdAction{
-    width: 20%;
+    width: 25%;
 }
 
 
