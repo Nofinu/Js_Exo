@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <h1>Ajout de la ToDo</h1>
+        <form id="addToDo">
+            <input type="text" id="inputTitle" placeholder="Titre :">
+            <textarea name="content" id="content" cols="30" rows="10" placeholder="Contenu :"></textarea>
+            <button id="confirm">Valider</button>
+        </form>
+        <h1>Recherche :</h1>
+        <input type="text" id="entryResearch" placeholder="Titre :">
+        <button id="btnResearch">Recherche</button>
+        <table>
+            <thead>
+                <tr>
+                    <td id="tdId">id</td>
+                    <td id="tdTitre">Titre</td>
+                    <td id="tdContenu">Contenu</td>
+                    <td id="tdAction">Actions</td>
+                </tr>
+            </thead>
+            <tbody id="tableDisplay">
+                <!-- <tr>
+                    <td>01</td>
+                    <td>azea</td>
+                    <td>aea</td>
+                    <td><button data-surp="0" class="btnSurp">supr</button><button data-do="0" class="btnDo">fait</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </main>
+    
+</body>
+<script src="./main.js" type="module"></script>
+</html>
+
+
