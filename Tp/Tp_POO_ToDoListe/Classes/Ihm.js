@@ -27,6 +27,8 @@ export default class Ihm {
             else{
                 console.error(`Elements ${this.formAddToDo.querySelector('#inputTitle').value} deja present dans le tableau !`);
             }
+            this.formAddToDo.querySelector('#inputTitle').value = "";
+            this.formAddToDo.querySelector('#content').value = "";
         });
 
         this.btnResearch.addEventListener('click',async ()=>{
