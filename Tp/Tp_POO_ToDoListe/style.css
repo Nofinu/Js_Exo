@@ -78,14 +78,14 @@ thead{
 }
 
 tbody tr:nth-child(odd) {
-    background-color: rgb(197, 196, 196);
+    background-color: rgb(48, 48, 48);
 }
 tbody tr:nth-child(even) {
-    background-color: grey;
+    background-color: rgb(31, 31, 31);
 }
 
 tbody>tr{
-    height: 40px;
+    height: 50px;
 }
 
 #tdId{

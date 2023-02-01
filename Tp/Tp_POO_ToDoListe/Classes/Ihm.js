@@ -23,14 +23,10 @@ export default class Ihm {
         })
 
         document.addEventListener('click',async (e)=>{
-            const classe = e.target.dataset.btn
-            console.log(classe)
             if(e.target.dataset.btn =='surp'){
                 console.log(await this.SuprToDo(Number(e.target.dataset.surp)))
                 await this.refreshTable(document.querySelector('#entryResearch').value);
             }
-
-
             if(e.target.dataset.btn == "Fait"){
                 this.ToDoListe[e.target.dataset.status].status = false;
                 this.refreshTable(document.querySelector('#entryResearch').value)
@@ -48,7 +44,6 @@ export default class Ihm {
         this.ToDoListe.push(await this.CreateToDo(title,content));
         console.log(this.ToDoListe)
     }
-
 
     CreateToDo(title,content){
         console.log("entre create todo")
