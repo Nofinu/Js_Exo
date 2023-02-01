@@ -1,5 +1,10 @@
 body,html{
     margin: 10px;
+    font-family: sans-serif;
+}
+
+hr{
+    border-top: 1px;
 }
 
 form{

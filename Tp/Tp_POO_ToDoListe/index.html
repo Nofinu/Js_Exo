@@ -13,17 +13,21 @@
         <div id="container">
             <h1>Ajout de la ToDo</h1>
             <form id="addToDo">
+                <label for="inputTitle">Titre:</label>
                 <input type="text" id="inputTitle" placeholder="Titre :">
+                <label for="content">Contenu :</label>
                 <textarea name="content" id="content" cols="30" rows="10" placeholder="Contenu :"></textarea>
                 <button id="confirm">Valider</button>
             </form>
-            <h1>Recherche :</h1>
+            <hr>
+            <h1>Recherche</h1>
             <input type="text" id="entryResearch" placeholder="Titre :">
             <button id="btnResearch">Recherche</button>
+            <hr>
             <table>
                 <thead>
                     <tr>
-                        <td id="tdId">id</td>
+                        <td id="tdId">#</td>
                         <td id="tdTitre">Titre</td>
                         <td id="tdContenu">Contenu</td>
                         <td id="tdAction">Actions</td>
