@@ -7,4 +7,3 @@ const tableDisplay = document.querySelector('#tableDisplay');
 
 const ihm = new Ihm(formAddToDo,btnResearch,tableDisplay);
 ihm.start()
-

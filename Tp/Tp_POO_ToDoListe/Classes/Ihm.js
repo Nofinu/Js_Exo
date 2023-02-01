@@ -23,17 +23,19 @@ export default class Ihm {
         })
 
         document.addEventListener('click',async (e)=>{
-            if(e.target.innerText == "supr"){
+            const classe = e.target.dataset.btn
+            console.log(classe)
+            if(e.target.dataset.btn =='surp'){
                 console.log(await this.SuprToDo(Number(e.target.dataset.surp)))
                 await this.refreshTable(document.querySelector('#entryResearch').value);
             }
 
 
-            if(e.target.innerText == "Fait"){
+            if(e.target.dataset.btn == "Fait"){
                 this.ToDoListe[e.target.dataset.status].status = false;
                 this.refreshTable(document.querySelector('#entryResearch').value)
             }
-            if(e.target.innerText == "A faire"){
+            if(e.target.dataset.btn == "A faire"){
                 this.ToDoListe[e.target.dataset.status].status = true;
                 this.refreshTable(document.querySelector('#entryResearch').value)
             }
@@ -78,7 +80,10 @@ export default class Ihm {
                         <td>${this.ToDoListe.indexOf(Todo)+1}</td>
                         <td>${Todo.title}</td>
                         <td>${Todo.content}</td>
-                        <td><button data-surp="${this.ToDoListe.indexOf(Todo)}" class="btnSurp">supr</button><button data-status="${this.ToDoListe.indexOf(Todo)}" ${Todo.status? "class='btnDo'": "class='btnToDo'"}>${Todo.status? "Fait": "A faire"}</button></td>
+                        <td>
+                        <button data-btn="surp" data-surp="${this.ToDoListe.indexOf(Todo)}" class="btnSurp"><img data-btn="surp" src="./asset/trash3.svg" alt="trash"></button>
+                        <button data-btn="${Todo.status? "Fait": "A faire"}" data-status="${this.ToDoListe.indexOf(Todo)}" ${Todo.status? "class='btnDo'": "class='btnToDo'"}>${Todo.status? `<img data-btn="Fait" data-status="${this.ToDoListe.indexOf(Todo)}" src="./asset/check-circle.svg" alt="fait">`: `<img data-btn="A faire" data-status="${this.ToDoListe.indexOf(Todo)}" src="./asset/clock.svg" alt="a faire">`}</button>
+                        </td>
                         </tr>`
                     }
                 })
