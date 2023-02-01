@@ -13,7 +13,7 @@ export default class Ihm {
             e.preventDefault();
             console.log("entre")
             await this.AddToDo(this.formAddToDo.querySelector('#inputTitle').value,this.formAddToDo.querySelector('#content').value);
-            const result = await this.refreshTable();
+            const result = await this.refreshTable(document.querySelector('#entryResearch').value);
             console.log(result);
         });
 
@@ -25,7 +25,7 @@ export default class Ihm {
         document.addEventListener('click',async (e)=>{
             if(e.target.innerText == "supr"){
                 console.log(await this.SuprToDo(Number(e.target.dataset.surp)))
-                await this.refreshTable();
+                await this.refreshTable(document.querySelector('#entryResearch').value);
             }
 
 
@@ -54,7 +54,7 @@ export default class Ihm {
             setTimeout(()=>{
                 console.log("1.5s create todo")
                 resolve(new ToDo(title,content));
-            },1000);
+            },800);
         });
     }
 
