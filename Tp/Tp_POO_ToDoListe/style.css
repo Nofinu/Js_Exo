@@ -91,17 +91,17 @@ tbody>tr{
     height: 50px;
 }
 
-#tdId{
+#thId{
     width: 10%;
 }
-#tdContenu{
+#thContenu{
     width: 55%;
 }
-#tdTitre{
+#thTitre{
     width: 20%;
 }
 
-#tdAction{
+#thAction{
     width: 15%;
 }
 
