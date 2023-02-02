@@ -8,6 +8,23 @@ button{
   margin: 5px;
 }
 
+h1{
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: underline;
+}
+
+h2{
+  margin-left: 17%;
+  text-decoration: underline;
+}
+
+span{
+  margin-top: 8px;
+  font-size: 13px;
+  font-style: italic;
+}
+
 #container{
   display:flex;
   flex-direction: row;
@@ -23,6 +40,7 @@ button{
 
 #btnAddContact{
   background-color: rgb(4, 92, 207);
+  font-size: 20px;
   color: white;
 }
 #btnAddContact:hover{
@@ -35,11 +53,25 @@ button{
   margin-right: 10px;
 }
 
+.btnContact{
+  background-color: transparent;
+  font-size: 15px;
+  height: 30px;
+}
+.btnContact:hover{
+  background-color: rgb(53, 53, 53);
+  color: white;
+
+}
+.concontainerDisplayContactsOff{
+  visibility: hidden;
+}
+
 #containerDisplayContacts{
   width: 80%;
   padding-left: 50px;
+  height: 50%;
 }
-
 #containerDisplayContacts > div {
   margin-top: 20px;
   font-size: 25px;
@@ -85,31 +117,31 @@ button{
   display: flex;
   flex-direction: column;
   background-color: white;
-  margin: 15% auto; 
+  margin: 10% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 45%; 
+  width: 35%; 
   border-radius: 10px;
 }
-
 
 /* elements du modal */
 #formAddContact,#formModifContact{
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 80%;
   margin: auto;
   text-align: left;
 }
 
-#formAddContact>input{
+#formAddContact>input,#formModifContact>input{
+  border: solid black 1px;
+  border-radius: 5px;
   margin-top: 5px;
 }
 
-
-#formAddContact>label{
+#formAddContact>label,#formModifContact>label{
   width: 80%;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .close{
@@ -117,7 +149,14 @@ button{
   width: 5%;
 }
 
-#btnModalAddContact{
+#btnModalAddContact,#btnModalModifContact{
   width: 20%;
   margin: 20px auto;
+  background-color: rgb(1, 150, 1);
+  color: white;
+  width: 60px;
+  height: 25px;
+}
+#btnModalAddContact:hover,#btnModalModifContact:hover{
+  background-color: rgb(1, 100, 1);
 }
