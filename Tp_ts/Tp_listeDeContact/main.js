@@ -9,6 +9,8 @@ const formAddContact = document.querySelector('#formAddContact');
 const formModifContact = document.querySelector('#formModifContact');
 const inputsADD = formAddContact.querySelectorAll('input');
 const inputsModif = formModifContact.querySelectorAll('input');
+const date = new Date().getTime();
+console.log(date);
 const contact1 = new Contact("nom", "prenom", 15, "exemple@test.com", "0102030405");
 const contact2 = new Contact("nom1", "prenom1", -1, "exemple1@test.com", "0102030405");
 const contact3 = new Contact("nom2", "prenom2", 15, "exemple2@test.com", "0102030405");
@@ -18,16 +20,19 @@ function RefreshListeContact(liste) {
     liste.forEach(contact => {
         containerContacts.innerHTML += `<button data-key="${liste.indexOf(contact)}" class="btnContact">${contact.names[0]} ${contact.names[1]}</button>`;
     });
-    containerContacts.innerHTML += "<button data-key='-1' id='btnAddContact'>+</button>";
+    containerContacts.innerHTML += "<button data-key='-1' id='btnAddContact'>+Ajouter+</button>";
 }
 function affichageContact(index) {
     containerDisplayContacts.innerHTML = `
-        <div id="lastname">${listeContacts[index].info[0]}</div>
-        <div id="firstname">${listeContacts[index].info[1]}</div>
-        <div ${listeContacts[index].info[2] === -1 ? "class='modalOff'" : ""} id="age">${listeContacts[index].info[2] === -1 ? "" : `${listeContacts[index].info[2]}`}</div>
-        <div id="email">${listeContacts[index].info[3]}</div>
-        <div id="phoneNumber">${listeContacts[index].info[4]}</div>
-        <div>
+        <h1>Fiche du contact</h1>
+        <div id=textContainer>
+        <div id="lastname">Nom : ${listeContacts[index].info[0]}</div>
+        <div id="firstname">Prenom : ${listeContacts[index].info[1]}</div>
+        <div ${listeContacts[index].info[2] === -1 ? "class='modalOff'" : ""} id="age">age : ${listeContacts[index].info[2] === -1 ? "" : `${listeContacts[index].info[2]}`}</div>
+        <div id="email">Email : ${listeContacts[index].info[3]}</div>
+        <div id="phoneNumber">Téléphone : ${listeContacts[index].info[4]}</div>
+        </div>
+        <div id="btnContainer">
         <button data-btn="${index}" id="btnSurp">X</button>
         <button data-btn="-1" data-key="${index}" id="btnModif">Modiffier</button>
         </div>

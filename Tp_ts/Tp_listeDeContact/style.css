@@ -1,5 +1,15 @@
+@keyframes rotation {
+  from{
+      transform: rotate(0turn);
+  }
+  to{
+      transform: rotate(1turn);
+  }
+}
+
 body,html{
   margin: 0;
+  font-family: sans-serif;
 }
 
 button{
@@ -45,6 +55,8 @@ span{
 }
 #btnAddContact:hover{
   background-color: rgb(2, 66, 150);
+  transform: translateY(-0.15rem);
+  box-shadow:  5px 2px 2px  rgba(0, 0, 0, 0.555);
 }
 
 #containerContacts{
@@ -55,13 +67,17 @@ span{
 
 .btnContact{
   background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
   font-size: 15px;
-  height: 30px;
+  height: 40px;
 }
 .btnContact:hover{
   background-color: rgb(53, 53, 53);
   color: white;
-
+  transform: translateY(-0.15rem);
+  box-shadow:  5px 2px 2px  rgba(0, 0, 0, 0.555);
 }
 .concontainerDisplayContactsOff{
   visibility: hidden;
@@ -69,7 +85,6 @@ span{
 
 #containerDisplayContacts{
   width: 80%;
-  padding-left: 50px;
   height: 50%;
 }
 #containerDisplayContacts > div {
@@ -77,25 +92,39 @@ span{
   font-size: 25px;
   font-family: sans-serif;
 }
+#textContainer{
+  margin-left: 35px;
+}
+#textContainer>div{
+  margin-top: 15px;
+}
+
+#btnContainer{
+  text-align: center;
+}
 
 #btnSurp{
   background-color: rgb(201, 2, 2);
   color: white;
-  width: 80px;
-  height: 25px;
+  width: 160px;
+  height: 40px;
 }
 #btnSurp:hover{
   background-color: rgb(150, 1, 1);
+  transform: translateY(-0.15rem);
+  box-shadow:  5px 2px 2px  rgba(0, 0, 0, 0.555);
 }
 
 #btnModif{
   background-color: rgb(199, 163, 2);
   color: white;
-  width: 80px;
-  height: 25px;
+  width: 160px;
+  height: 40px;
 }
 #btnModif:hover{
   background-color: rgb(151, 124, 2);
+  transform: translateY(-0.15rem);
+  box-shadow:  5px 2px 2px  rgba(0, 0, 0, 0.555);
 }
 
 /* gestion du modal */
@@ -111,7 +140,7 @@ span{
   width: 100%; 
   height: 100%; 
   overflow: auto; 
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.705);
 }
 .modal-content {
   display: flex;
@@ -147,6 +176,13 @@ span{
 .close{
   margin-left: 90%;
   width: 5%;
+  padding-bottom: 4px;
+  border-radius: 100%;
+  font-size: 18px;
+}
+
+.close:hover{
+  animation: rotation 0.5s linear 0s 1;
 }
 
 #btnModalAddContact,#btnModalModifContact{
@@ -159,4 +195,6 @@ span{
 }
 #btnModalAddContact:hover,#btnModalModifContact:hover{
   background-color: rgb(1, 100, 1);
+  transform: translateY(-0.15rem);
+  box-shadow: 5px 2px 2px rgba(0, 0, 0, 0.555);
 }
