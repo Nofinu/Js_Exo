@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div id="container">
+      <div id="containerContacts">
+        <h1>Contacts</h1>
+        <button class="btnContact">contact1</button>
+        <button class="btnContact">contact2</button>
+        <button id="btnAddContact">+</button>
+      </div>
+      <div id="containerDisplayContacts">
+      </div>
+    </div>
+
+
+    <div id="myModalAdd" class="modalOff">
+      <div class="modal-content">
+        <button id="closeAdd" class="close">&times;</button>
+        <form id="formAddContact">
+          <label for="inputLastname">Nom:</label>
+          <input type="text" id="inputLastname" required>
+          <label for="inputFirstname">Prenom:</label>
+          <input type="text" id="inputFirstname" required>
+          <label for="inputAge">Age:</label>
+          <input type="number" id="inputAge">
+          <label for="inputEmail">email:</label>
+          <input type="text" id="inputEmail">
+          <label for="inputPhoneNumber">Numero de Telephone:</label>
+          <input type="text" id="inputPhoneNumber">
+          <button id="btnModalAddContact">Ajouter</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="myModalModif" class="modalOff">
+      <div class="modal-content">
+        <button id="closeModif" class="close">&times;</button>
+        <form id="formModifContact">
+          <label for="inputModifLastname">Nom:</label>
+          <input type="text" id="inputModifLastname" required>
+          <label for="inputModifFirstname">Prenom:</label>
+          <input type="text" id="inputModifFirstname" required>
+          <label for="inputModifAge">Age:</label>
+          <input type="number" id="inputModifAge">
+          <label for="inputModifEmail">email:</label>
+          <input type="text" id="inputModifEmail">
+          <label for="inputModifPhoneNumber">Numero de Telephone:</label>
+          <input type="text" id="inputModifPhoneNumber">
+          <button id="btnModalModifContact">Modiffier</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+</body>
+<script src="main.js"  type="module"></script>
+</html>
