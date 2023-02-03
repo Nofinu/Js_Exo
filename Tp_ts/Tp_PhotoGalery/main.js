@@ -14,7 +14,7 @@ function RefreshButton() {
     });
     btnImg = divBtnSelection.querySelectorAll('button');
 }
-function RefreshImage(index) {
+function refreshImage(index) {
     displayImage.src = listeImage[index].getUrl;
     Description.innerText = listeImage[index].Description;
 }
@@ -34,7 +34,7 @@ function goToBlue(index) {
 divBtnSelection.addEventListener('click', (e) => {
     goToTransparent(btnblue);
     let btnselectioner = Number(e.target.dataset.key) - 1;
-    RefreshImage(btnselectioner);
+    refreshImage(btnselectioner);
     goToBlue(btnselectioner);
     btnblue = btnselectioner;
 });
@@ -43,13 +43,13 @@ btnArrowleft.addEventListener('click', () => {
         goToTransparent(btnblue);
         btnblue = listeImage.length - 1;
         goToBlue(btnblue);
-        RefreshImage(btnblue);
+        refreshImage(btnblue);
     }
     else {
         goToTransparent(btnblue);
         btnblue--;
         goToBlue(btnblue);
-        RefreshImage(btnblue);
+        refreshImage(btnblue);
     }
 });
 btnArrowright.addEventListener('click', () => {
@@ -57,15 +57,15 @@ btnArrowright.addEventListener('click', () => {
         goToTransparent(btnblue);
         btnblue = 0;
         goToBlue(btnblue);
-        RefreshImage(btnblue);
+        refreshImage(btnblue);
     }
     else {
         goToTransparent(btnblue);
         btnblue++;
         goToBlue(btnblue);
-        RefreshImage(btnblue);
+        refreshImage(btnblue);
     }
 });
 RefreshButton();
-RefreshImage(0);
+refreshImage(0);
 start();

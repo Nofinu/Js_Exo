@@ -18,7 +18,7 @@ function RefreshButton ():void{
     btnImg = divBtnSelection.querySelectorAll('button')
 }
 
-function RefreshImage (index:number):void{
+function refreshImage (index:number):void{
     displayImage.src = listeImage[index].getUrl
     Description.innerText = listeImage[index].Description
 }
@@ -43,7 +43,7 @@ function goToBlue (index:number):void{
 divBtnSelection.addEventListener('click',(e:Event)=>{
     goToTransparent(btnblue)
     let btnselectioner:number = Number((e.target as HTMLButtonElement).dataset.key)-1
-    RefreshImage(btnselectioner)
+    refreshImage(btnselectioner)
     goToBlue(btnselectioner)
     btnblue = btnselectioner
 })
@@ -53,13 +53,13 @@ btnArrowleft.addEventListener('click',()=>{
         goToTransparent(btnblue)
         btnblue = listeImage.length-1
         goToBlue(btnblue)
-        RefreshImage(btnblue)
+        refreshImage(btnblue)
     }
     else{
         goToTransparent(btnblue)
         btnblue--
         goToBlue(btnblue)
-        RefreshImage(btnblue)
+        refreshImage(btnblue)
     }
 })
 
@@ -68,19 +68,19 @@ btnArrowright.addEventListener('click',()=>{
         goToTransparent(btnblue)
         btnblue = 0
         goToBlue(btnblue)
-        RefreshImage(btnblue)
+        refreshImage(btnblue)
     }
     else{
         goToTransparent(btnblue)
         btnblue++
         goToBlue(btnblue)
-        RefreshImage(btnblue)
+        refreshImage(btnblue)
     }
 })
 
 
 RefreshButton()
-RefreshImage(0)
+refreshImage(0)
 start()
 
 
