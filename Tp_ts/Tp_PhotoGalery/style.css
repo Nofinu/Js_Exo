@@ -3,6 +3,16 @@ body,html{
     font-family: sans-serif;
 }
 
+h2{
+    margin-left: 10px;
+    text-decoration: underline;
+}
+hr{
+    border-top: 1px;
+    width: 96%;
+    margin: auto;
+}
+
 #container{
     display: flex;
     flex-wrap: wrap;

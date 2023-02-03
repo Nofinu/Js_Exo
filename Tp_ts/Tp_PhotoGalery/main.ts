@@ -10,7 +10,7 @@ let btnImg = divBtnSelection.querySelectorAll('button')
 let btnblue:number = 0
 let listeImage : ImageItem[] = [new ImageItem("./asset/imageMontagne.jpg","Montagne","une image de montagne"),new ImageItem("./asset/champDeFleure.jpg","Fleure","une image de champ de fleure")]
 
-function RefreshButton ():void{
+function refreshButton ():void{
     divBtnSelection.innerHTML =""
     listeImage.forEach(image =>{
         divBtnSelection.innerHTML +=`<button data-key="${image.getId}" class="btnTransparent">${image.getTitle}</button>`
@@ -79,7 +79,7 @@ btnArrowright.addEventListener('click',()=>{
 })
 
 
-RefreshButton()
+refreshButton()
 refreshImage(0)
 start()
 

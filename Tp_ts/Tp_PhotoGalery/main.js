@@ -7,7 +7,7 @@ const btnArrowright = document.querySelector('#button2');
 let btnImg = divBtnSelection.querySelectorAll('button');
 let btnblue = 0;
 let listeImage = [new ImageItem("./asset/imageMontagne.jpg", "Montagne", "une image de montagne"), new ImageItem("./asset/champDeFleure.jpg", "Fleure", "une image de champ de fleure")];
-function RefreshButton() {
+function refreshButton() {
     divBtnSelection.innerHTML = "";
     listeImage.forEach(image => {
         divBtnSelection.innerHTML += `<button data-key="${image.getId}" class="btnTransparent">${image.getTitle}</button>`;
@@ -66,6 +66,6 @@ btnArrowright.addEventListener('click', () => {
         refreshImage(btnblue);
     }
 });
-RefreshButton();
+refreshButton();
 refreshImage(0);
 start();
