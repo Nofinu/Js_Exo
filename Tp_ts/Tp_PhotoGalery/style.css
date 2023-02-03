@@ -1,0 +1,100 @@
+body,html{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+#containerDisplayImg,#containerButton,#containerDescription{
+    background-color: rgb(26, 26, 26);
+    color: rgb(243, 243, 243);
+    border-radius: 5px;
+}
+
+#containerDisplayImg,#containerButton{
+    width: 49.5%;
+}
+
+#containerDescription{
+    margin-top: 0.5vw;
+    width: 100%;
+}
+
+#containerDisplayImg{
+    margin-right: 1%;
+}
+
+
+#imgContainer{
+    position: relative;
+    margin: 30px auto;
+    border-radius: 100%;
+    max-height: 500px;
+    height: 40vw;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+
+#btnContainer{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    bottom: 70px;
+    left: 10%;
+    width: 80%;
+}
+#btnContainer>button{
+    background-color: rgb(2, 138, 201);
+    color: white;
+    border: transparent;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+}
+#btnContainer>button:hover{
+    background-color: rgb(2, 104, 151);
+}
+
+#button1{
+bottom: 20%;
+}
+
+#divBtnSelection{
+    display: flex;
+    flex-direction: column;
+}
+
+#divBtnSelection>button{
+    color: white;
+    margin: auto;
+    height: 80px;
+    width: 95%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border:solid rgb(112, 111, 111) 1px;
+}
+#divBtnSelection>button:hover{
+    background-color: rgb(1, 60, 170);
+}
+.btnTransparent{
+    background-color: transparent;
+}
+
+.BtnBlue{
+    background-color:rgb(2, 138, 201) ;
+}
+
+#description{
+    padding: 15px;
+    margin-left: 10px;
+}
