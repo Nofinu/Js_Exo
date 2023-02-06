@@ -12,6 +12,7 @@ for (const key in recipes) {
     recipesList.push(Object.assign({ id: key }, recipes[key]));
 }
 let recipesListDisplay = [];
+let recipesListDisplaySelect = [];
 function addDivModal(data, contenu = "") {
     let divModal = document.createElement('div');
     divModal.innerHTML = `${contenu} <b>${data}</b>`;
@@ -132,16 +133,17 @@ function filterByCoockTime() {
     }
 }
 function sortSelect(value) {
-    let test = false;
-    recipesListDisplay.forEach(recipe => {
+    recipesListDisplaySelect = [...recipesListDisplay];
+    recipesListDisplaySelect.forEach(recipe => {
+        let test = false;
         for (const ingredient in recipe.ingredients) {
             if (recipe.ingredients[ingredient].name === value) {
                 test = true;
             }
         }
         if (!test) {
-            const index = recipesListDisplay.indexOf(recipe);
-            recipesListDisplay.splice(index, 1);
+            const index = recipesListDisplaySelect.indexOf(recipe);
+            console.log(recipesListDisplaySelect.splice(index, 1));
         }
     });
 }
@@ -163,9 +165,10 @@ function GeneIngredientsInput(liste) {
     });
     select.addEventListener('change', () => {
         let selected = select.selectedOptions;
+        console.log(selected);
         for (let i = 0; i < selected.length; i++) {
             sortSelect(selected[i].value);
-            displayRecipes(recipesListDisplay);
+            displayRecipes(recipesListDisplaySelect);
         }
     });
     ingredientsContainer.appendChild(select);
