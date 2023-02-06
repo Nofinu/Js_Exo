@@ -148,22 +148,17 @@ function filterByCoockTime ():void{
 }
 
 function sortSelect (value:string):void{
-  recipesListDisplaySelect = [...recipesListDisplay]
-  recipesListDisplaySelect.forEach(recipe =>{
-    let test = false
-    for(const ingredient in recipe.ingredients){
-      if(recipe.ingredients[ingredient].name === value){
-        test = true
+  recipesListDisplaySelect = []
+  recipesListDisplay.filter(recipe => {
+    recipe.ingredients.forEach(name =>{
+      if(name.name == value){
+        console.log(name.name === value)
+        recipesListDisplaySelect.push(recipe)
       }
-    }
-    if(!test){
-      const index = recipesListDisplaySelect.indexOf(recipe)
-      console.log(recipesListDisplaySelect.splice(index,1))
-    }
-
+    })
   })
-
 }
+
 
 function GeneIngredientsInput(liste:Recipe[]):void{
   let listeIngredients:string[] = []
