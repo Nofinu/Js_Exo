@@ -1,0 +1,122 @@
+body,html{
+  margin: 0;
+}
+
+h1{
+  grid-column: 1/3;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding-left: 20px;
+}
+
+hr{
+  grid-column: 1/3;
+  width: 100%;
+}
+
+#container{
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+}
+#inputContanier{
+  width: 28%;
+}
+.divIngredient{
+  display: flex;
+  justify-content: space-between;
+}
+
+#prepTime,#cookTime{
+  width: 100%;
+}
+
+#ingredientsContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 8px;
+}
+
+#tickmarksLabelPrepTime,#tickmarksLabelCookTime{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#tickmarksLabelPrepTime>p,#tickmarksLabelCookTime>p{
+  margin: 0;
+}
+
+.recipes{
+  padding-left: 15px;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  grid-template-rows: 0.8fr 0.1fr 1fr;
+  align-items: center;
+}
+
+#recipesContainer{
+  width: 72%;
+  margin: auto;
+}
+
+.btnRecipe{
+  width: 80%;
+  height: 35px;
+  margin-left: 10%;
+}
+
+
+
+/* gestion modal */
+.modalOff {
+  display: none; 
+}
+.modalOn{
+  display: block;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.705);
+}
+#modalContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: white;
+  margin: 10% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; 
+  border-radius: 10px;
+  font-size: 19px;
+}
+
+.ingredientsModal,.instructionModal{
+  grid-column: 1/5;
+}
+
+.ingredientsModal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.ingredientsModal>ul:nth-child(even)>li{
+  width: 180px;
+  margin-top: 4px;
+}
+
+.ingredientsModal>ul:nth-child(odd)>li{
+  list-style-type: "-";
+  margin-top: 5px;
+}
+
+.instructionModalOl>li{
+  margin-top: 10px;
+  width: 100%;
+}
