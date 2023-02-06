@@ -5,7 +5,7 @@ const recipesContainer = document.querySelector('#recipesContainer');
 const myModal = document.querySelector('#myModal');
 const modalContent = document.querySelector('#modalContent');
 const ingredientsContainer = document.querySelector('#ingredientsContainer');
-const form = document.querySelector('#inputContanier');
+const btnreset = document.querySelector('#btnreset');
 const inputResearch = document.querySelector('#inputResearch');
 const recipesList = [];
 for (const key in recipes) {
@@ -131,7 +131,7 @@ function filterByCoockTime() {
             break;
     }
 }
-function sortchecked(value) {
+function sortSelect(value) {
     let test = false;
     recipesListDisplay.forEach(recipe => {
         for (const ingredient in recipe.ingredients) {
@@ -147,41 +147,31 @@ function sortchecked(value) {
 }
 function GeneIngredientsInput(liste) {
     let listeIngredients = [];
-    ingredientsContainer.innerHTML = "";
+    ingredientsContainer.innerHTML = "<select id='selectIngredient' multiple></select>";
+    const select = document.querySelector('#selectIngredient');
     liste.forEach(recipe => {
         for (const ingredient in recipe.ingredients) {
             const test = listeIngredients.findIndex(ingredientListe => ingredientListe === recipe.ingredients[ingredient].name);
             if (test === -1) {
                 listeIngredients.push(recipe.ingredients[ingredient].name);
-                let input = document.createElement("INPUT");
-                let inputlabel = document.createElement('label');
-                let div = document.createElement('div');
-                div.className = "divIngredient";
-                inputlabel.innerText = recipe.ingredients[ingredient].name;
-                input.setAttribute("type", "radio");
-                input.setAttribute("value", recipe.ingredients[ingredient].name);
-                input.addEventListener('change', () => {
-                    console.log('checked');
-                    sortchecked(input.value);
-                    displayRecipes(recipesListDisplay);
-                });
-                div.appendChild(inputlabel);
-                div.appendChild(input);
-                ingredientsContainer.appendChild(div);
+                let option = document.createElement('option');
+                option.innerText = recipe.ingredients[ingredient].name;
+                option.setAttribute("value", recipe.ingredients[ingredient].name);
+                select.appendChild(option);
             }
         }
     });
-}
-function sortByInputResearch(value) {
-    console.log(recipesListDisplay);
-    recipesListDisplay.forEach(recipe => {
-        console.log(recipe.name);
-        if (!recipe.name.includes(value)) {
-            const index = recipesListDisplay.indexOf(recipe);
-            recipesListDisplay.splice(index, 1);
+    select.addEventListener('change', () => {
+        let selected = select.selectedOptions;
+        for (let i = 0; i < selected.length; i++) {
+            sortSelect(selected[i].value);
+            displayRecipes(recipesListDisplay);
         }
     });
-    console.log(recipesListDisplay);
+    ingredientsContainer.appendChild(select);
+}
+function sortByInputResearch(value) {
+    recipesListDisplay = recipesListDisplay.filter(recipe => recipe.name.startsWith(value));
 }
 prepTimeInput.addEventListener('change', () => {
     filerByPrepTime();
@@ -200,8 +190,7 @@ window.addEventListener('click', (e) => {
         myModal.className = "modalOff";
     }
 });
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+btnreset.addEventListener('click', () => {
     recipesListDisplay = [...recipesList];
     prepTimeInput.value = "4";
     coockTimeInput.value = "4";
@@ -212,8 +201,14 @@ form.addEventListener('submit', (e) => {
 });
 document.addEventListener('keydown', (e) => {
     if (e.key === "Enter") {
-        console.log('entre');
         sortByInputResearch(inputResearch.value);
+        GeneIngredientsInput(recipesListDisplay);
+        displayRecipes(recipesListDisplay);
+    }
+});
+inputResearch.addEventListener('input', () => {
+    if (inputResearch.value === "") {
+        recipesListDisplay = [...recipesList];
         GeneIngredientsInput(recipesListDisplay);
         displayRecipes(recipesListDisplay);
     }
@@ -221,4 +216,3 @@ document.addEventListener('keydown', (e) => {
 recipesListDisplay = [...recipesList];
 displayRecipes(recipesListDisplay);
 GeneIngredientsInput(recipesListDisplay);
-console.log(recipesList);

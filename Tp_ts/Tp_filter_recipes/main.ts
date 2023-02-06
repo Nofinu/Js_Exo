@@ -7,7 +7,7 @@ const recipesContainer = document.querySelector('#recipesContainer') as HTMLDivE
 const myModal = document.querySelector('#myModal') as HTMLDivElement
 const modalContent = document.querySelector('#modalContent') as HTMLDivElement
 const ingredientsContainer = document.querySelector('#ingredientsContainer') as HTMLDivElement
-const form = document.querySelector('#inputContanier') as HTMLFormElement
+const btnreset = document.querySelector('#btnreset') as HTMLButtonElement
 const inputResearch = document.querySelector('#inputResearch') as HTMLInputElement
 
 const recipesList: Recipe[] = [];
@@ -90,7 +90,7 @@ function displayRecipes(liste:Recipe[]):void{
   })
 }
 
-function sortList (value:number):oid{
+function sortList (value:number):void{
   recipesListDisplay = []
   recipesList.forEach(recipe =>{
     let [time]=recipe.prepTime.split(' ')
@@ -146,7 +146,7 @@ function filterByCoockTime ():void{
   }
 }
 
-function sortchecked (value:string):void{
+function sortSelect (value:string):void{
   let test = false
   recipesListDisplay.forEach(recipe =>{
     for(const ingredient in recipe.ingredients){
@@ -164,42 +164,32 @@ function sortchecked (value:string):void{
 
 function GeneIngredientsInput(liste:Recipe[]):void{
   let listeIngredients:string[] = []
-  ingredientsContainer.innerHTML=""
+  ingredientsContainer.innerHTML="<select id='selectIngredient' multiple></select>"
+  const select = document.querySelector('#selectIngredient') as HTMLSelectElement
   liste.forEach(recipe =>{
     for(const ingredient in recipe.ingredients){
       const test = listeIngredients.findIndex(ingredientListe => ingredientListe === recipe.ingredients[ingredient].name)
       if(test === -1){
         listeIngredients.push(recipe.ingredients[ingredient].name)
-        let input = document.createElement("INPUT")
-        let inputlabel = document.createElement('label')
-        let div = document.createElement('div')
-        div.className = "divIngredient"
-        inputlabel.innerText = recipe.ingredients[ingredient].name
-        input.setAttribute("type","radio")
-        input.setAttribute("value",recipe.ingredients[ingredient].name)
-        input.addEventListener('change',()=>{
-          console.log('checked')
-          sortchecked ((input as HTMLInputElement).value)
-          displayRecipes(recipesListDisplay)
-        })
-        div.appendChild(inputlabel)
-        div.appendChild(input)
-        ingredientsContainer.appendChild(div)
+        let option = document.createElement('option')
+        option.innerText = recipe.ingredients[ingredient].name
+        option.setAttribute("value",recipe.ingredients[ingredient].name)
+        select.appendChild(option)
       }
     }
   })
+  select.addEventListener('change',()=>{
+    let selected = select.selectedOptions
+    for(let i=0;i<selected.length;i++){
+      sortSelect(selected[i].value)
+      displayRecipes(recipesListDisplay)
+    }
+  })
+  ingredientsContainer.appendChild(select)
 }
 
 function sortByInputResearch (value:string):void{
-  console.log(recipesListDisplay)
-  recipesListDisplay.forEach(recipe =>{
-    console.log(recipe.name)
-    if(!recipe.name.includes(value)){
-      const index = recipesListDisplay.indexOf(recipe)
-      recipesListDisplay.splice(index,1)
-    }
-  })
-  console.log(recipesListDisplay)
+  recipesListDisplay = recipesListDisplay.filter(recipe => recipe.name.startsWith(value))
 }
 
 prepTimeInput.addEventListener('change',()=>{
@@ -222,8 +212,7 @@ window.addEventListener('click',(e:Event)=>{
   }
 })
 
-form.addEventListener('submit',(e:Event)=>{
-  e.preventDefault()
+btnreset.addEventListener('click',()=>{
   recipesListDisplay = [...recipesList]
   prepTimeInput.value = "4"
   coockTimeInput.value = "4"
@@ -235,19 +224,23 @@ form.addEventListener('submit',(e:Event)=>{
 
 document.addEventListener('keydown',(e)=>{
   if(e.key === "Enter"){
-    console.log('entre')
     sortByInputResearch(inputResearch.value)
     GeneIngredientsInput(recipesListDisplay)
     displayRecipes(recipesListDisplay)
   }
-
 })
 
+inputResearch.addEventListener('input',()=>{
+  if(inputResearch.value === ""){
+    recipesListDisplay = [...recipesList]
+    GeneIngredientsInput(recipesListDisplay)
+    displayRecipes(recipesListDisplay)
+  }
+})
 
 recipesListDisplay = [...recipesList]
 displayRecipes(recipesListDisplay)
 GeneIngredientsInput(recipesListDisplay)
 
-console.log(recipesList)
 
 

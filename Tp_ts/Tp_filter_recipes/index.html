@@ -10,7 +10,7 @@
 <body>
   <main>
     <div id="container">
-      <form id="inputContanier">
+      <div id="inputContanier">
         <label for="prepTime">Temps de preparation</label>
         <input type="range" id="prepTime" list="tickmarksPrepTime" min="1" max="4" step="1">
         <datalist id="tickmarksPrepTime">
@@ -35,10 +35,11 @@
 
         </div>
         <hr>
+        <label for="inputResearch">Research : </label>
         <input type="text"  id="inputResearch">
         <hr>
-        <button>Reset</button>
-      </form>
+        <button id="btnreset">Reset</button>
+      </div>
 
 
         <div id="recipesContainer">
