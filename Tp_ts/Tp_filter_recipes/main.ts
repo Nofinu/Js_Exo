@@ -1,4 +1,4 @@
-import { recipes } from "./recipes.js";
+import { recipes } from "./recipes/recipes.js";
 import Recipe from "./interface/Recipe.js";
 
 const prepTimeInput = document.querySelector('#prepTime') as HTMLInputElement

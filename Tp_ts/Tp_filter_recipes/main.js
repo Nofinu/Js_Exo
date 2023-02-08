@@ -1,4 +1,4 @@
-import { recipes } from "./recipes.js";
+import { recipes } from "./recipes/recipes.js";
 const prepTimeInput = document.querySelector('#prepTime');
 const coockTimeInput = document.querySelector('#cookTime');
 const recipesContainer = document.querySelector('#recipesContainer');
