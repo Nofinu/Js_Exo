@@ -153,7 +153,7 @@ function sortSelect (value:string):void{
     recipe.ingredients.forEach(name =>{
       if(name.name == value){
         console.log(name.name === value)
-        recipesListDisplaySelect.push(recipe)
+        return true
       }
     })
   })
